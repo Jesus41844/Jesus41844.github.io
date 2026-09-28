@@ -562,11 +562,13 @@ a {
   color: var(--ink-soft);
 }
 
+/* Los bullets ocupan las dos columnas: son la lista de lo que hace la app, y
+   medidos en la columna de 15rem salían en seis líneas de tres palabras.
+   `max-width` fuera a propósito, que es lo que los angostaba. */
 .project-points {
-  grid-column: 1;
+  grid-column: 1 / -1;
   grid-row: 3;
-  max-width: var(--measure);
-  margin: 0.9rem 0 0;
+  margin: 1.1rem 0 0;
   padding-left: 1.05rem;
   color: var(--ink-soft);
 }
@@ -580,7 +582,7 @@ a {
 }
 
 .project-stack {
-  grid-column: 1;
+  grid-column: 1 / -1;
   grid-row: 4;
   display: flex;
   flex-wrap: wrap;
@@ -597,7 +599,7 @@ a {
 }
 
 .project-links {
-  grid-column: 1;
+  grid-column: 1 / -1;
   grid-row: 5;
   display: flex;
   flex-wrap: wrap;
@@ -634,7 +636,7 @@ a {
 }
 
 .project-footnote {
-  grid-column: 1;
+  grid-column: 1 / -1;
   grid-row: 6;
   max-width: var(--measure);
   margin-top: 1rem;

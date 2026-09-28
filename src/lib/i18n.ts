@@ -62,7 +62,7 @@ export const copy: Record<Locale, Copy> = {
     navLang: 'English',
     heroBadge: 'En busca de una pasantía',
     heroEyebrow: 'Cuatro aplicaciones · una misma pregunta',
-    heroHeadline: 'Software para cuando el calendario no sigue la regla.',
+    heroHeadline: 'Software para cuando la realidad no encaja en el papel.',
     heroSub:
       'Cada proyecto aquí nació de un supuesto que resultó falso: que la quincena dura quince días, que un hueco de cinco minutos es tiempo libre, que las tareas de la semana caben en un mensaje. Escribo software que modela la realidad en lugar del calendario ideal.',
     ctaEmail: 'Escríbeme',
@@ -107,7 +107,7 @@ export const copy: Record<Locale, Copy> = {
     navLang: 'Español',
     heroBadge: 'Looking for an internship',
     heroEyebrow: 'Four applications · the same question',
-    heroHeadline: 'Software for when the calendar does not follow the rule.',
+    heroHeadline: 'Software for when reality does not fit on paper.',
     heroSub:
       'Every project here started from an assumption that turned out to be false: that a pay period lasts fifteen days, that a five-minute gap is free time, that the week’s tasks fit in one message. I write software that models reality instead of the ideal calendar.',
     ctaEmail: 'Email me',
