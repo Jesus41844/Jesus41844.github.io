@@ -13,6 +13,7 @@ interface Props {
   image?: string;
   imageCaption?: string;
   imageFit?: 'cover' | 'contain';
+  imageAspect?: number;
   color: ColorName;
   status: string;
   demoLabel: string;
@@ -35,6 +36,7 @@ const {
   image,
   imageCaption,
   imageFit,
+  imageAspect,
   color,
   status,
   demoLabel,
@@ -68,7 +70,9 @@ const {
             alt={`${title}: captura de la aplicación`}
             loading="lazy"
             decoding="async"
-            style={imageFit ? `object-fit:${imageFit}` : undefined}
+            style={`object-fit:${imageFit ?? 'cover'};object-position:left top${
+              imageAspect ? `;aspect-ratio:${imageAspect}` : ''
+            }`}
           />
           <figcaption>{imageCaption ?? shotCaption}</figcaption>
         </>

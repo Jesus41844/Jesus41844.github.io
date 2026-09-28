@@ -72,7 +72,7 @@ el ancho lo fija el CSS a 16:10.
 | Captura | Pixels | Ratio | Ajuste | Por qué |
 |---|---|---|---|---|
 | `daytuba-org.png` | 1327x651 | 2.04 | `cover` | Más ancha que la caja; baja a 0.80x, sin recorte |
-| `horarios.png` | 1331x534 | 2.49 | `cover` | La más ancha; baja a 0.97x, sin recorte |
+| `horarios.png` | 1333x343 | 3.89 | `cover` + `imageAspect: 3.886` | Demasiado ancha para 16:10 |
 | `daytuba-gastos.png` | 537x589 | 0.91 | `contain` | Vertical y pequeña: `cover` la agranda 1.47x y le corta el 40% del alto |
 | `appmermelab.jpg` | 1499x824 | 1.82 | `cover` | La más cercana a la caja; baja a 0.63x, sin recorte |
 
@@ -82,6 +82,14 @@ ancha y más pequeña que la caja, así que `cover` la agranda y la deja blanda 
 una pantalla 2x. Con `contain` baja a 0.88x y queda como una lámina vertical
 montada en una hoja apaisada, que además encaja con la estética. **No lo cambies
 por gusto**; si cambias una captura, vuelve a medirlo.
+
+`imageAspect` existe por la misma razón. La captura de Horarios es de 3.89 y el
+marco de 16:10 no la cabía: con `cover` se agrandaba 1.51x **y** le recortaba el
+61% del ancho, que en un calendario de veinte personas es justo la parte donde
+se ve el cruce de franjas. Con `contain` era nitida pero ocupaba el 39% del
+alto, con 158px de barra arriba y abajo. Dándole su propio ratio, el marco queda
+de 760x196, la foto baja a 0.57x y sale entera y nitida. Es la opción que no
+reparte lo malo entre las dos.
 
 Cuando no hay captura, la caja sale vacía con un pie que lo explica. No es un
 placeholder decorativo: es la posición donde iría la imagen.

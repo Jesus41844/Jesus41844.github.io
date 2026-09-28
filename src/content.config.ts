@@ -26,6 +26,10 @@ const projects = defineCollection({
     /** `contain` para capturas mas pequenas que la caja: `cover` las
      *  agranda y las deja blandas en pantallas 2x. Por defecto, `cover`. */
     imageFit: z.enum(['cover', 'contain']).optional(),
+    /** Ratio del marco de la captura. Por defecto 16/10. Se cambia cuando la
+     *  foto no cabe en 16:10 sin recortarse de mas: forzar el marco recorta
+     *  la captura, y una captura recortada deja de probar lo que prueba. */
+    imageAspect: z.number().optional(),
   }),
 });
 
