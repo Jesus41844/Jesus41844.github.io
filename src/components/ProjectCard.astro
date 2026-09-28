@@ -47,11 +47,17 @@ const {
 ---
 
 <article class="project" data-project={color}>
-  <div class="project-head">
-    <h3 class="project-title">{title}</h3>
-    <p class="project-tagline">{tagline}</p>
-    <p class="project-status">{status}</p>
-  </div>
+      <div class="project-head">
+        <h3 class="project-title">{title}</h3>
+        <p class="project-tagline">{tagline}</p>
+        <p class="project-status">{status}</p>
+      </div>
+
+      {/* La descripcion va antes que la captura en el DOM: en el grid de
+          escritorio se placingan en columna propia al lado de la imagen, y en
+          una sola columna caen en este orden, que es el que se lee. */}
+      <p class="project-problem">{problem}</p>
+
 
   <figure class="project-shot">
     {
@@ -74,8 +80,6 @@ const {
       )
     }
   </figure>
-
-  <p class="project-problem">{problem}</p>
 
   <ul class="project-points">
     {highlights.map((h) => <li>{h}</li>)}

@@ -14,6 +14,8 @@ highlights:
   - Contrasta la merma esperada con la real en cada cocción, para poder ajustar la receta con datos y no con intuición.
   - "Todos los cálculos en precisión decimal, no en coma flotante: los grados Brix no lo toleran."
   - Desarrollado en el marco de COIL 2026, cooperación entre la UTP y la Universidad del Valle de Guatemala.
+image: /projects/appmermelab.jpg
+imageCaption: captura real
 status: App de escritorio · se instala
 stack:
   - Python

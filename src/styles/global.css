@@ -496,7 +496,13 @@ a {
   margin-top: 1.9rem;
 }
 
+/* Nombre, tagline y descripcion comparten la columna izquierda; la captura va
+   en la derecha, en las dos primeras filas. Se coloca a mano en vez de confiar
+   en el autoplacement: con el orden del DOM, los bullets y los chips acababan
+   uno al lado del otro. */
 .project-head {
+  grid-column: 1;
+  grid-row: 1;
   align-self: start;
   position: relative;
   padding-left: 0.85rem;
@@ -545,12 +551,20 @@ a {
   color: var(--proj-color);
 }
 
+/* La descripcion va en la columna izquierda, bajo el tagline y al lado de la
+   captura. El `max-width` de la medida editorial sobra: la columna de 15rem ya
+   es mas angosta que el, y aqui manda el ancho del grid. */
 .project-problem {
-  max-width: var(--measure);
+  grid-column: 1;
+  grid-row: 2;
+  align-self: start;
+  margin: 0.8rem 0 0;
   color: var(--ink-soft);
 }
 
 .project-points {
+  grid-column: 1;
+  grid-row: 3;
   max-width: var(--measure);
   margin: 0.9rem 0 0;
   padding-left: 1.05rem;
@@ -566,6 +580,8 @@ a {
 }
 
 .project-stack {
+  grid-column: 1;
+  grid-row: 4;
   display: flex;
   flex-wrap: wrap;
   gap: 0 0.5rem;
@@ -581,6 +597,8 @@ a {
 }
 
 .project-links {
+  grid-column: 1;
+  grid-row: 5;
   display: flex;
   flex-wrap: wrap;
   align-items: baseline;
@@ -616,9 +634,8 @@ a {
 }
 
 .project-footnote {
-  /* Sin esto el footnote caia en la columna estrecha del titulo, porque
-     el titular solo ocupa cuatro filas de la rejilla. */
-  grid-column: 2;
+  grid-column: 1;
+  grid-row: 6;
   max-width: var(--measure);
   margin-top: 1rem;
   padding-left: 0.85rem;
@@ -632,19 +649,18 @@ a {
     grid-template-columns: minmax(0, 1fr);
     gap: 0;
   }
-  .project-head {
-    margin-bottom: 0.9rem;
-  }
-  .project-footnote {
-    grid-column: auto;
-  }
 }
 
 /* La captura se trata como una figura de plano: marco de linea fina, fondo de
    panel para la letterbox, y el pie en mono. Sin sombra y sin esquinas
    redondeadas, porque el resto de la pagina es plano a proposito y una sombra
    aqui romperia el mismo plano que sostiene todo. */
+/* La captura ocupa la derecha y las dos filas primeras, para medir lo que
+   miden el nombre y la descripcion juntos. */
 .project-shot {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  align-self: start;
   margin: 0 0 1.15rem;
 }
 
@@ -693,6 +709,35 @@ a {
   text-transform: uppercase;
   letter-spacing: 0.08em;
   color: var(--ink-faint);
+}
+
+@media (max-width: 52rem) {
+  /* Una sola columna: se cancelan las colocaciones explicitas y cada bloque
+     vuelve al orden del DOM, que ya es el orden de lectura — nombre,
+     descripcion, captura, detalles. La captura queda entre la descripcion y
+     los bullets, que es donde se espera ver la evidencia.
+
+     Este bloque va DESPUES de todas las reglas de proyecto a proposito. La
+     especificidad es identica, asi que el orden es lo unico que gana: si se
+     pone antes, `.project-shot` vuelve a imposederse col=2 row=1/span 2 y la
+     grilla se queda con dos columnas, una de ancho cero. */
+  .project-head,
+  .project-shot,
+  .project-problem,
+  .project-points,
+  .project-stack,
+  .project-links,
+  .project-footnote {
+    grid-column: auto;
+    grid-row: auto;
+    min-width: 0;
+  }
+  .project-head {
+    margin-bottom: 0.9rem;
+  }
+  .project-problem {
+    margin: 0 0 1.15rem;
+  }
 }
 
 .chips {

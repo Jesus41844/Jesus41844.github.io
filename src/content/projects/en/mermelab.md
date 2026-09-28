@@ -14,6 +14,8 @@ highlights:
   - Contrasts expected waste against actual waste on every cook, so recipes can be adjusted with data instead of intuition.
   - "Every calculation in decimal precision, not floating point: Brix degrees do not tolerate it."
   - Built as part of COIL 2026, a cooperation between UTP and the Universidad del Valle de Guatemala.
+image: /projects/appmermelab.jpg
+imageCaption: real screenshot
 status: Desktop app · installs locally
 stack:
   - Python
