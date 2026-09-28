@@ -1,0 +1,48 @@
+---
+interface Props {
+  title: string;
+  tagline: string;
+  problem: string;
+  highlights: string[];
+  stack: string[];
+  repo: string;
+  demo?: string;
+  footnote?: string;
+  demoLabel: string;
+  codeLabel: string;
+}
+
+const {
+  title,
+  tagline,
+  problem,
+  highlights,
+  stack,
+  repo,
+  demo,
+  footnote,
+  demoLabel,
+  codeLabel,
+} = Astro.props;
+---
+
+<article class="project">
+  <h3>{title}</h3>
+  <p class="tagline">{tagline}</p>
+  <p class="problem">{problem}</p>
+
+  <ul>
+    {highlights.map((h) => <li>{h}</li>)}
+  </ul>
+
+  <div class="stack-list">
+    {stack.map((s) => <span class="tag">{s}</span>)}
+  </div>
+
+  <div class="foot">
+    {demo && <a class="btn btn-primary" href={demo}>{demoLabel}</a>}
+    <a class="btn" href={repo} rel="noopener">{codeLabel}</a>
+  </div>
+
+  {footnote && <p class="note">{footnote}</p>}
+</article>

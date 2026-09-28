@@ -1,0 +1,27 @@
+---
+interface Props {
+  name: string;
+  role: string;
+  location: string;
+  summary: string;
+  ctaRepo: string;
+  ctaLinkedin: string;
+}
+
+const { name, role, location, summary, ctaRepo, ctaLinkedin } = Astro.props;
+---
+
+<header class="hero">
+  <h1>{name}</h1>
+  <p class="role">{role}</p>
+  <p class="where">{location}</p>
+  <p class="summary">{summary}</p>
+  <div class="cta">
+    <a class="btn btn-primary" href="https://github.com/Jesus41844">{ctaRepo}</a>
+    <a
+      class="btn"
+      href="https://www.linkedin.com/in/jesus-de-gracia-a1750a230/"
+      rel="me">{ctaLinkedin}</a
+    >
+  </div>
+</header>

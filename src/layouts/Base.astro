@@ -1,0 +1,72 @@
+---
+import '../styles/global.css';
+import { copy, links, otherLocale, type Locale } from '../lib/i18n';
+
+interface Props {
+  locale: Locale;
+  title: string;
+  description: string;
+}
+
+const { locale, title, description } = Astro.props;
+const t = copy[locale];
+const alt = otherLocale[locale];
+const canonical = new URL(Astro.url.pathname, Astro.site);
+
+const ogImage = new URL('/og.png', Astro.site);
+---
+
+<!doctype html>
+<html lang={t.htmlLang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <meta name="author" content={t.name} />
+
+    <!-- Versiones alternadas: es en / y en /en/. -->
+    <link rel="alternate" hreflang="es" href={new URL('/', Astro.site)} />
+    <link rel="alternate" hreflang="en" href={new URL('/en/', Astro.site)} />
+    <link rel="alternate" hreflang="x-default" href={new URL('/', Astro.site)} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:locale" content={locale === 'es' ? 'es_PA' : 'en_US'} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="alternate" href={Astro.url.pathname} hreflang={alt} />
+  </head>
+  <body>
+    <a class="skip" href="#main">{t.navProjects}</a>
+    <div class="wrap">
+      <nav class="site-nav" aria-label={t.navProjects}>
+        <a href={`/${locale === 'es' ? '' : 'en/'}#projects`}>{t.navProjects}</a>
+        <a href={`/${locale === 'es' ? '' : 'en/'}#experience`}>{t.navExperience}</a>
+        <a href={`/${locale === 'es' ? '' : 'en/'}#stack`}>{t.navStack}</a>
+        <a href={`/${locale === 'es' ? '' : 'en/'}#contact`}>{t.navContact}</a>
+        <a class="lang" href={locale === 'es' ? '/en/' : '/'} hreflang={alt} lang={alt}>
+          {t.langSwitch}
+        </a>
+      </nav>
+    </div>
+    <main id="main" class="wrap">
+      <slot />
+    </main>
+    <footer class="wrap">
+      <div class="foot-inner">
+        <span>{t.footerNote}</span>
+        <a href={links.github}>GitHub</a>
+        <a href={links.linkedin}>LinkedIn</a>
+      </div>
+    </footer>
+  </body>
+</html>
