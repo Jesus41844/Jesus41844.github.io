@@ -69,12 +69,19 @@ Cada proyecto puede traer una captura real en `image:`. Va dentro de
 `public/projects/`, se muestra en un marco de linea fina con el pie en mono, y
 el ancho lo fija el CSS a 16:10.
 
-`imageFit` existe por una razón medida, no por gusto: la captura de
-`DaytubaGastos` es de 537x589 y la caja es de 792x519. Con `cover` se agranda
-1.47x y pierde el 40% del alto, y en una pantalla 2x se ve blanda. Con
-`contain` baja a 0.88x, queda nitida y se ve como una lámina vertical montada
-en una hoja apaisada. Las otras dos van con `cover` porque son mas grandes que
-la caja y solo se recortan.
+| Captura | Pixels | Ratio | Ajuste | Por qué |
+|---|---|---|---|---|
+| `daytuba-org.png` | 1327x651 | 2.04 | `cover` | Más ancha que la caja; baja a 0.80x, sin recorte |
+| `horarios.png` | 1331x534 | 2.49 | `cover` | La más ancha; baja a 0.97x, sin recorte |
+| `daytuba-gastos.png` | 537x589 | 0.91 | `contain` | Vertical y pequeña: `cover` la agranda 1.47x y le corta el 40% del alto |
+| `appmermelab.jpg` | 1499x824 | 1.82 | `cover` | La más cercana a la caja; baja a 0.63x, sin recorte |
+
+`imageFit` existe por una razón medida, no por gusto. La caja la fija el CSS a
+16:10 y mide 792x519. La captura de `DaytubaGastos` no entra: es más alta que
+ancha y más pequeña que la caja, así que `cover` la agranda y la deja blanda en
+una pantalla 2x. Con `contain` baja a 0.88x y queda como una lámina vertical
+montada en una hoja apaisada, que además encaja con la estética. **No lo cambies
+por gusto**; si cambias una captura, vuelve a medirlo.
 
 Cuando no hay captura, la caja sale vacía con un pie que lo explica. No es un
 placeholder decorativo: es la posición donde iría la imagen.
