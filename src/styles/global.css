@@ -969,3 +969,25 @@ footer {
     transition-duration: 0.001ms !important;
   }
 }
+
+/* ---------- prosa justificada ----------
+
+Se aplica solo a los bloques de prosa ancha, de 672px para arriba. A esa
+medida el interletraje se absorbe con los espacios y no se nota. La
+descripcion de los proyectos queda fuera a proposito: vive en una columna de
+15rem, y a 240px justificar abre huecos de dos o tres palabras entre linea y
+linea, que en una columna tan angosta se leen como un fallo y no como una
+decision tipografica.
+
+No se activa `hyphens`: el ancho no lo pide, y los guiones a la mitad de la
+linea rompen el aire tecnico de la pagina. */
+.lede,
+.band-intro,
+.role-body,
+.role-detail,
+.about-lead,
+.about-para,
+.project-points li,
+.project-footnote {
+  text-align: justify;
+}
