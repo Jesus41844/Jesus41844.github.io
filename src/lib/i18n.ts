@@ -47,7 +47,7 @@ export const copy: Record<Locale, Copy> = {
     zone: 'UTC−5',
     skip: 'Saltar al contenido',
     navProjects: 'Proyectos',
-    navExperience: 'Cargos',
+    navExperience: 'Trayectoria',
     navContact: 'Contacto',
     navLang: 'English',
     heroEyebrow: 'Cuatro aplicaciones · una misma pregunta',
@@ -61,13 +61,13 @@ export const copy: Record<Locale, Copy> = {
       'Cuando veinte personas cruzan sus horarios, alguien tiene que señalar la franja que sí funciona. Eso fue lo primero que programé.',
     projectsLabel: 'Proyectos · 04',
     projectsIntro:
-      'Cuatro aplicaciones que están en uso, no ejercicios de clase. Tres se pueden abrir ahora mismo.',
+      'Cuatro aplicaciones que están en uso, no ejercicios de clase. Dos se pueden abrir ahora mismo.',
     demo: 'Abrir la app',
     code: 'Código',
     noDemo: 'Sin demo pública',
-    experienceLabel: 'Cargos · 03',
+    experienceLabel: 'Trayectoria · 04',
     experienceIntro:
-      'Dos de estas herramientas las construí para las organizaciones donde tengo cargo.',
+      'Dos de estas herramientas las construí para las organizaciones donde tengo cargo. Y dos de los cargos no son un trabajo: es dirigir una agrupación y organizar un congreso.',
     techLabel: 'Tecnologías',
     contactLabel: 'Contacto',
     contactBody:
@@ -83,10 +83,10 @@ export const copy: Record<Locale, Copy> = {
     zone: 'UTC−5',
     skip: 'Skip to content',
     navProjects: 'Projects',
-    navExperience: 'Roles',
+    navExperience: 'Background',
     navContact: 'Contact',
     navLang: 'Español',
-    heroEyebrow: 'Four applications · one same question',
+    heroEyebrow: 'Four applications · the same question',
     heroHeadline: 'Software for when the calendar does not follow the rule.',
     heroSub:
       'Every project here started from an assumption that turned out to be false: that a pay period lasts fifteen days, that a five-minute gap is free time, that the week’s tasks fit in one message. I write software that models reality instead of the ideal calendar.',
@@ -97,13 +97,13 @@ export const copy: Record<Locale, Copy> = {
       'When twenty people cross their timetables, someone has to point at the slot that actually works. That was the first thing I programmed.',
     projectsLabel: 'Projects · 04',
     projectsIntro:
-      'Four applications that are actually in use, not class exercises. Three of them are live right now.',
+      'Four applications that are actually in use, not class exercises. Two of them are live right now.',
     demo: 'Open the app',
     code: 'Code',
     noDemo: 'No public demo',
-    experienceLabel: 'Roles · 03',
+    experienceLabel: 'Background · 04',
     experienceIntro:
-      'Two of these tools I built for the organizations where I hold a position.',
+      'Two of these tools I built for the organizations where I hold a position. And two of the entries below are not jobs: running a student group and organizing a congress.',
     techLabel: 'Technologies',
     contactLabel: 'Contact',
     contactBody:

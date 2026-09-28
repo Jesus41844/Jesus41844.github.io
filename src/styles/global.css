@@ -491,6 +491,16 @@ a {
   color: var(--ink-soft);
 }
 
+/* Lo primero que se escanea en vertical: qué puedes hacer con esto. */
+.project-status {
+  margin-top: 0.7rem;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--proj-color);
+}
+
 .project-problem {
   max-width: var(--measure);
   color: var(--ink-soft);

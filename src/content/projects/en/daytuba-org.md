@@ -15,6 +15,7 @@ highlights:
   - Attached PDFs are served by checking session and ownership on every request, not only at upload time.
   - "Docker Compose (web + PostgreSQL 17): it comes up on any machine with one command."
   - 23 automated tests; CI runs the suite, type checking and lint.
+status: Live demo · 23 tests
 stack:
   - Next.js 16
   - React 19

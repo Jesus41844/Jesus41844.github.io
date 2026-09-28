@@ -14,6 +14,9 @@ const projects = defineCollection({
     stack: z.array(z.string()),
     repo: z.string(),
     demo: z.string().optional(),
+    /** Que se puede hacer con este proyecto. Va en la columna izquierda,
+        *  que es lo primero que se escanea en vertical. */
+    status: z.string(),
     /** Nota al pie para proyectos sin demo (app de escritorio, etc). */
     footnote: z.string().optional(),
   }),

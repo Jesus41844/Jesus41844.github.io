@@ -2,18 +2,19 @@
 id: horarios-greb
 locale: en
 order: 2
-title: Horarios GREB
-tagline: When is everyone actually free?
+title: Schedules
+tagline: When is everyone free?
 problem: >-
-  Setting up a meeting for twenty people in a student group means cross-checking
-  twenty class schedules in PDF. Nobody was doing it, so meetings ended up
-  agreed on blind and half the group did not show.
+  Finding a time that works for a group of twenty people means cross-referencing
+  twenty class schedules, most of them in PDF. Nobody did it, so meetings
+  ended up agreed blindly and half the group never showed up.
 highlights:
-  - "Every member uploads their schedule as a PDF or a screenshot, and the app answers the only question that matters: when is the whole group free?"
-  - OCR runs in the browser, so a screenshot of a schedule never leaves the device.
-  - Blocks separated by less than five minutes are merged, because that is the real gap between classes, not free time.
-  - Each group's data stays isolated from the others even when they share the same facility.
+  - "Each member uploads their schedule as a PDF or a screenshot, and the app answers the only question that really matters: which slot has everyone free at the same time."
+  - Optical character recognition runs in the browser, so a schedule screenshot never leaves the device.
+  - Blocks separated by less than five minutes get merged, because a two-minute gap between classes is a real break, not free time.
+  - Each group's data stays isolated from the others even when they share an installation, so it works for any group, not just one.
   - 67 automated tests.
+status: Live demo · 67 tests
 stack:
   - Python
   - FastAPI
@@ -22,4 +23,8 @@ stack:
   - pytest
 repo: https://github.com/Jesus41844/Horarios_GREB
 demo: https://horarios-greb.vercel.app
+footnote: >-
+  The repository and the demo still carry the name of the first group this was
+  built for. The app does not depend on it: every group's data is kept
+  separate.
 ---

@@ -3,17 +3,18 @@ id: daytuba-gastos
 locale: en
 order: 3
 title: DaytubaGastos
-tagline: Two-week budgeting without surprises
+tagline: Spending per pay period, without surprises
 problem: >-
-  In Panama a "quincena" is not every fifteen days: the payday moves. Budgeting
-  apps assume fixed intervals, so their totals never match what is actually
-  left at the end of the month.
+  In Panama the pay period is not every fifteen days: the payday moves. Most
+  expense apps start from a fixed interval, so their totals never match what
+  actually happened by the end of the month.
 highlights:
-  - You set your own payday dates instead of accepting a fixed interval.
-  - It keeps personal money separate from group money, because the two are not reported the same way.
-  - Closing a period generates the PDF with the breakdown and the balance, ready to send or file.
-  - 50 tests cover the cases that break the calendar, which is exactly where these apps fall apart.
+  - You set your own payday dates instead of being handed a fixed interval.
+  - It keeps personal money apart from group money, because the two need to be reported differently.
+  - Closing a pay period generates a PDF with the detail and the balance, ready to send or file.
+  - 50 tests cover the cases that break the calendar, which is exactly where these apps go wrong.
   - Deployed on Vercel with Supabase; migrations apply themselves on every build.
+status: "No demo: personal instance"
 stack:
   - Next.js 16
   - TypeScript
@@ -22,5 +23,8 @@ stack:
   - Supabase
   - vitest
 repo: https://github.com/Jesus41844/DaytubaGastos
-demo: https://daytuba-gastos.vercel.app
+footnote: >-
+  There is deliberately no public demo: the deployed copy is my own personal
+  instance, with my data in it, and I am not opening that up. The source is
+  complete and deploys on its own.
 ---

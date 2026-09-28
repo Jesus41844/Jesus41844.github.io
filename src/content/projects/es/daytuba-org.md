@@ -15,6 +15,7 @@ highlights:
   - Los PDF adjuntos se sirven comprobando sesión y propiedad en cada petición, no solo al subirlos.
   - "Docker Compose (web + PostgreSQL 17): se levanta en cualquier máquina con un comando."
   - 23 tests automatizados; CI con pruebas, comprobación de tipos y lint.
+status: Demo pública · 23 tests
 stack:
   - Next.js 16
   - React 19

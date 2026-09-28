@@ -14,6 +14,7 @@ highlights:
   - Al cerrar la quincena genera el PDF con el detalle y el balance, listo para enviar o archivar.
   - 50 tests cubren los casos que rompen el calendario, que es justo donde estas aplicaciones fallan.
   - Despliegue en Vercel con Supabase; las migraciones se aplican solas en cada build.
+status: "Sin demo: instancia personal"
 stack:
   - Next.js 16
   - TypeScript
@@ -22,5 +23,8 @@ stack:
   - Supabase
   - vitest
 repo: https://github.com/Jesus41844/DaytubaGastos
-demo: https://daytuba-gastos.vercel.app
+footnote: >-
+  No hay demo pública a propósito: la versión que está desplegada es mi
+  instancia personal, con mis datos, y no la voy a abrir. El código está
+  completo y se puede desplegar por separado.
 ---

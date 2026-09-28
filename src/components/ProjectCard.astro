@@ -11,6 +11,7 @@ interface Props {
   demo?: string;
   footnote?: string;
   color: ColorName;
+  status: string;
   demoLabel: string;
   codeLabel: string;
   noDemoLabel: string;
@@ -26,6 +27,7 @@ const {
   demo,
   footnote,
   color,
+  status,
   demoLabel,
   codeLabel,
   noDemoLabel,
@@ -36,6 +38,7 @@ const {
   <div class="project-head">
     <h3 class="project-title">{title}</h3>
     <p class="project-tagline">{tagline}</p>
+    <p class="project-status">{status}</p>
   </div>
 
   <p class="project-problem">{problem}</p>
