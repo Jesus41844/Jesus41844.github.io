@@ -2,7 +2,7 @@
 id: contecs
 locale: en
 order: 3
-role: Committee member
+role: Activities Coordinator
 org: CONTECS
 period: 2025 – 2026
 kind: Student congress · two editions
@@ -12,6 +12,11 @@ body: >-
   the committee for both editions: the first one in September 2025, and the
   second in October 2026.
 ---
+
+I started as deputy coordinator for Activities, Sales and Volunteers at the
+first edition, and at the second one I am the coordinator for Activities. It is
+the same area, one level up: getting the resources and building the team is no
+longer my part, running the congress programme as a whole is.
 
 It is a congress for undergraduate and graduate students, with talks and
 workshops. The first edition was the faculty's inaugural one, so part of my

@@ -2,7 +2,7 @@
 id: contecs
 locale: es
 order: 3
-role: Miembro del comité
+role: Coordinador de Actividades
 org: CONTECS
 period: 2025 – 2026
 kind: Congreso estudiantil · dos ediciones
@@ -12,6 +12,11 @@ body: >-
   con estudiantes. Estuve en el comité de las dos ediciones: la primera, en
   septiembre de 2025, y la segunda, en octubre de 2026.
 ---
+
+Empecé como subcoordinador de Actividades, Ventas y Voluntarios en la primera
+edición, y en la segunda soy coordinador de Actividades. El cargo es el mismo
+área, pero con el nivel siguiente: ya no me toca conseguir los recursos ni
+armar el equipo, sino dirigir el programa completo del congreso.
 
 Es un congreso para estudiantes de pregrado y posgrado, con ponencias y
 talleres. La primera edición fue la inaugural de la facultad, así que parte de

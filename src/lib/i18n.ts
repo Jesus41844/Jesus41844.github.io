@@ -145,8 +145,8 @@ export const links = {
   githubHandle: 'github.com/Jesus41844',
   linkedin: 'https://www.linkedin.com/in/jesus-de-gracia-a1750a230/',
   linkedinHandle: 'in/jesus-de-gracia-a1750a230',
-  /** Vacio hasta que Jesus mande el correo: sin el, el CTA de email no sale. */
-  email: '',
+  /** Con esto el CTA de email del hero se renderiza; vacio, no sale. */
+  email: 'degraciajesus831@gmail.com',
 } as const;
 
 /** Nombres largos de los dias, para el texto que solo lee el lector de pantalla. */
