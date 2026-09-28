@@ -69,30 +69,24 @@ Cada proyecto puede traer una captura real en `image:`. Va dentro de
 `public/projects/`, se muestra en un marco de linea fina con el pie en mono, y
 el ancho lo fija el CSS a 16:10.
 
-| Captura | Pixels | Ratio | Ajuste | Por qué |
-|---|---|---|---|---|
-| `daytuba-org.png` | 1327x651 | 2.04 | `cover` | Más ancha que la caja; baja a 0.80x, sin recorte |
-| `horarios.png` | 1333x343 | 3.89 | `cover` + `imageAspect: 3.886` | Demasiado ancha para 16:10 |
-| `daytuba-gastos.png` | 537x589 | 0.91 | `contain` | Vertical y pequeña: `cover` la agranda 1.47x y le corta el 40% del alto |
-| `appmermelab.jpg` | 1499x824 | 1.82 | `cover` | La más cercana a la caja; baja a 0.63x, sin recorte |
+**Las cuatro capturas comparten el mismo marco: 792x495, todas con `cover` y
+`object-position: left top`.** La uniformidad se pidió a propósito, y tiene un
+precio medido:
 
-`imageFit` existe por una razón medida, no por gusto. La caja la fija el CSS a
-16:10 y mide 792x519. La captura de `DaytubaGastos` no entra: es más alta que
-ancha y más pequeña que la caja, así que `cover` la agranda y la deja blanda en
-una pantalla 2x. Con `contain` baja a 0.88x y queda como una lámina vertical
-montada en una hoja apaisada, que además encaja con la estética. **No lo cambies
-por gusto**; si cambias una captura, vuelve a medirlo.
+| Captura | Fuente | Ratio | Escala | Se recorta | Resultado |
+|---|---|---|---|---|---|
+| `daytuba-org.png` | 1327x651 | 2.04 | 0.76x | 22% derecha | nitida |
+| `horarios.png` | 1333x343 | 3.89 | **1.44x** | 59% derecha | **se agranda** |
+| `daytuba-gastos.png` | 537x589 | 0.91 | **1.47x** | 43% abajo | **se agranda** |
+| `appmermelab.jpg` | 1499x824 | 1.82 | 0.60x | 12% derecha | nitida |
 
-`imageAspect` existe por la misma razón. La captura de Horarios es de 3.89 y el
-marco de 16:10 no la cabía: con `cover` se agrandaba 1.51x **y** le recortaba el
-61% del ancho, que en un calendario de veinte personas es justo la parte donde
-se ve el cruce de franjas. Con `contain` era nitida pero ocupaba el 39% del
-alto, con 158px de barra arriba y abajo. Dándole su propio ratio, el marco queda
-de 760x196, la foto baja a 0.57x y sale entera y nitida. Es la opción que no
-reparte lo malo entre las dos.
-
-Cuando no hay captura, la caja sale vacía con un pie que lo explica. No es un
-placeholder decorativo: es la posición donde iría la imagen.
+Dos de las cuatro se agrandan porque su fuente no entra de origen en un marco
+16:10. Antes cada una llevaba su ajuste y Horarios su propio ratio, y quedaban
+cuatro cajas de alturas distintas, que es lo que más se notaba al mirar la
+página. **El marco uniforme vale más que la nitidez de dos de ellas**, pero si
+alguna se ve blanda el arreglo no es volver a `contain` (eso devuelve las cajas
+desiguales): es recapturar a mayor resolución, y en el caso de `DaytubaGastos`
+con una ventana más ancha que alta, que es el formato que tiene la app.
 
 ## La tipografía y el color
 

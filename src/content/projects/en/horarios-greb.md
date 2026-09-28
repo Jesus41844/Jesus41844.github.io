@@ -21,10 +21,7 @@ stack:
   - pdfplumber
   - JavaScript
   - pytest
-# 1333x343 = ratio 3.89. Forzado a 16/10 recortaba el 61% del ancho
-# y ademas lo agrandaba 1.51x; el marco se ajusta a la foto.
 image: /projects/horarios.png
-imageAspect: 3.886
 repo: https://github.com/Jesus41844/Horarios_GREB
 demo: https://horarios-greb.vercel.app
 footnote: >-
