@@ -11,8 +11,9 @@ src/
 ├── content/            # Contenido en markdown, separado por idioma
 │   ├── projects/es/    # Un archivo por proyecto, en español
 │   ├── projects/en/
-│   └── experience/     # Un archivo por cargo
-├── components/         # Hero, WeekGrid, ProjectCard, RoleItem
+│   ├── experience/     # Un archivo por entrada de experiencia
+│   └── about/          # La seccion "Sobre mi", una hoja por idioma
+├── components/         # Hero, WeekGrid, ProjectCard, RoleItem, About
 ├── layouts/Base.astro  # Metadatos, OpenGraph, hreflang alternos, el script
 ├── lib/i18n.ts         # Textos de interfaz por idioma
 ├── lib/palette.ts      # Un color por proyecto
@@ -61,6 +62,22 @@ uno, agrégalo en los dos idiomas o la página quedaría desbalanceada.
 
 **Ojo con YAML:** un ítem de lista que contenga dos puntos seguido de espacio se
 interpreta como un mapa. Cítalo con comillas.
+
+## Las capturas de los proyectos
+
+Cada proyecto puede traer una captura real en `image:`. Va dentro de
+`public/projects/`, se muestra en un marco de linea fina con el pie en mono, y
+el ancho lo fija el CSS a 16:10.
+
+`imageFit` existe por una razón medida, no por gusto: la captura de
+`DaytubaGastos` es de 537x589 y la caja es de 792x519. Con `cover` se agranda
+1.47x y pierde el 40% del alto, y en una pantalla 2x se ve blanda. Con
+`contain` baja a 0.88x, queda nitida y se ve como una lámina vertical montada
+en una hoja apaisada. Las otras dos van con `cover` porque son mas grandes que
+la caja y solo se recortan.
+
+Cuando no hay captura, la caja sale vacía con un pie que lo explica. No es un
+placeholder decorativo: es la posición donde iría la imagen.
 
 ## La tipografía y el color
 
