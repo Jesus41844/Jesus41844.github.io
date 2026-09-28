@@ -675,7 +675,13 @@ a {
   width: 100%;
   aspect-ratio: 16 / 10;
   object-fit: cover;
-  object-position: top;
+  /* Pegada al borde izquierdo de la caja y arriba: la foto no flota en el
+     centro. Con esto la captura de DaytubaGastos, que va con `contain` y es
+     la unica con holgura, deja toda la barra vacia a la derecha. Las otras
+     tres si se recortan por el lado derecho: alinear a la izquierda cambia
+     que parte de la interfaz sobrevive, y en una captura ancha lo que se
+     pierde es la mitad derecha. Es una decision consciente, no un descuido. */
+  object-position: left top;
   border: 1px solid var(--rule);
   background: var(--panel);
 }
