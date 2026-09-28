@@ -5,7 +5,6 @@ order: 1
 role: President
 org: Grupo de Robótica Evolutiva Bioinspirada (GREB)
 period: Jan 2026 – present
-kind: Full time
 place: Panama City
 body: >-
   Research unit within the EURUS student organization, in the Faculty of

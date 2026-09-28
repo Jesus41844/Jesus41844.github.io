@@ -5,7 +5,6 @@ order: 1
 role: Presidente
 org: Grupo de Robótica Evolutiva Bioinspirada (GREB)
 period: ene. 2026 – actualidad
-kind: Jornada completa
 place: Panamá
 body: >-
   Unidad de investigación dentro de la agrupación estudiantil EURUS, en la
