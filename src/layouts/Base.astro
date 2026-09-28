@@ -11,9 +11,29 @@ interface Props {
 const { locale, title, description } = Astro.props;
 const t = copy[locale];
 const alt = otherLocale[locale];
+const home = locale === 'es' ? '' : 'en/';
 const canonical = new URL(Astro.url.pathname, Astro.site);
-
 const ogImage = new URL('/og.png', Astro.site);
+
+/** Lista de referencia al pie, en monoespaciada. No es una seccion propia. */
+const STACK = [
+  'TypeScript',
+  'Python',
+  'Next.js',
+  'React',
+  'Flask',
+  'FastAPI',
+  'PostgreSQL',
+  'Prisma',
+  'Drizzle',
+  'SQLAlchemy',
+  'Docker',
+  'Supabase',
+  'Vercel',
+  'GitHub Actions',
+  'vitest',
+  'pytest',
+];
 ---
 
 <!doctype html>
@@ -26,7 +46,13 @@ const ogImage = new URL('/og.png', Astro.site);
     <link rel="canonical" href={canonical} />
     <meta name="author" content={t.name} />
 
-    <!-- Versiones alternadas: es en / y en /en/. -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+Condensed:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap"
+    />
+
     <link rel="alternate" hreflang="es" href={new URL('/', Astro.site)} />
     <link rel="alternate" hreflang="en" href={new URL('/en/', Astro.site)} />
     <link rel="alternate" hreflang="x-default" href={new URL('/', Astro.site)} />
@@ -43,30 +69,66 @@ const ogImage = new URL('/og.png', Astro.site);
     <meta name="twitter:image" content={ogImage} />
 
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-    <link rel="alternate" href={Astro.url.pathname} hreflang={alt} />
   </head>
+
   <body>
-    <a class="skip" href="#main">{t.navProjects}</a>
+    <a class="skip" href="#main">{t.skip}</a>
+
     <div class="wrap">
-      <nav class="site-nav" aria-label={t.navProjects}>
-        <a href={`/${locale === 'es' ? '' : 'en/'}#projects`}>{t.navProjects}</a>
-        <a href={`/${locale === 'es' ? '' : 'en/'}#experience`}>{t.navExperience}</a>
-        <a href={`/${locale === 'es' ? '' : 'en/'}#stack`}>{t.navStack}</a>
-        <a href={`/${locale === 'es' ? '' : 'en/'}#contact`}>{t.navContact}</a>
-        <a class="lang" href={locale === 'es' ? '/en/' : '/'} hreflang={alt} lang={alt}>
-          {t.langSwitch}
-        </a>
-      </nav>
+      <header class="masthead">
+        <p class="who">
+          <span class="who-name">{t.name}</span>
+          <span class="who-role">{t.role}</span>
+        </p>
+        <nav class="nav" aria-label={t.navProjects}>
+          <a href={`/${home}#projects`}>{t.navProjects}</a>
+          <a href={`/${home}#experience`}>{t.navExperience}</a>
+          <a href={`/${home}#contact`}>{t.navContact}</a>
+          <a class="nav-lang" href={locale === 'es' ? '/en/' : '/'} hreflang={alt} lang={alt}>
+            {t.navLang}
+          </a>
+        </nav>
+      </header>
+
+      <main id="main">
+        <slot />
+      </main>
     </div>
-    <main id="main" class="wrap">
-      <slot />
-    </main>
+
     <footer class="wrap">
       <div class="foot-inner">
-        <span>{t.footerNote}</span>
-        <a href={links.github}>GitHub</a>
-        <a href={links.linkedin}>LinkedIn</a>
+        <p class="foot-loc">{t.location} · {t.zone}</p>
+        <p class="foot-tech">
+          <span class="foot-key">{t.techLabel}</span>
+          {STACK.map((s, i) => (
+            <>
+              {i > 0 && <span class="sep" aria-hidden="true">/</span>}
+              <span>{s}</span>
+            </>
+          ))}
+        </p>
+        <p class="foot-note">{t.footerNote}</p>
       </div>
     </footer>
+
+    <script>
+      // Al pasar el cursor o el foco por un proyecto, se encienden sus
+      // bloques en la rejilla del hero. Es la unica pieza de JS del sitio:
+      // si falla, la pagina se lee igual.
+      const blocks = Array.from(document.querySelectorAll<HTMLElement>('[data-block]'));
+      const rows = Array.from(document.querySelectorAll<HTMLElement>('[data-project]'));
+
+      const light = (id: string | null) => {
+        for (const b of blocks) b.classList.toggle('is-lit', b.dataset.block === id);
+      };
+
+      for (const row of rows) {
+        const id = row.dataset.project ?? null;
+        row.addEventListener('mouseenter', () => light(id));
+        row.addEventListener('mouseleave', () => light(null));
+        row.addEventListener('focusin', () => light(id));
+        row.addEventListener('focusout', () => light(null));
+      }
+    </script>
   </body>
 </html>

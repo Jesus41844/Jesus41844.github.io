@@ -1,0 +1,98 @@
+---
+import { week, weekDays, weekHours, weekLegend } from '../lib/weekgrid';
+import { colorLabel, type ColorName } from '../lib/palette';
+import { weekDayFull, weekHourLabel, type Locale } from '../lib/i18n';
+
+interface Props {
+  locale: Locale;
+  /** Titulo corto de cada proyecto, indexado por color, para el texto alternativo. */
+  names: Record<ColorName, string>;
+  caption: string;
+  freeLabel: string;
+  note: string;
+}
+
+const { locale, names, caption, freeLabel, note } = Astro.props;
+
+const days = weekDays[locale];
+const dayFull = weekDayFull[locale];
+
+/** Indice plano de celda, para escalonar la entrada de los bloques. */
+let step = 0;
+const painted = week.map((row) => ({
+  ...row,
+  paintedCells: row.cells.map((cell, col) => ({
+    cell,
+    col,
+    delay: cell ? step++ : 0,
+  })),
+}));
+---
+
+<figure class="week">
+  <table class="week-grid">
+    <caption class="sr-only">{caption}</caption>
+    <thead>
+      <tr>
+        <th class="week-corner" scope="col">
+          <span class="sr-only">{weekHourLabel[locale]}</span>
+        </th>
+        {
+          days.map((d, i) => (
+            <th scope="col">
+              <span aria-hidden="true">{d}</span>
+              <span class="sr-only">{dayFull[i]}</span>
+            </th>
+          ))
+        }
+      </tr>
+    </thead>
+    <tbody>
+      {
+        painted.map((row) => (
+          <tr>
+            <th scope="row">{row.hour}</th>
+            {row.paintedCells.map(({ cell, col, delay }) => (
+              <td class:list={['week-cell', { 'is-picked': row.picked && col === 1 }]}>
+                {cell ? (
+                  <>
+                    <span
+                      class:list={['blk', `blk--${cell}`]}
+                      data-block={cell}
+                      style={`--i:${delay}`}
+                      aria-hidden="true"
+                    />
+                    <span class="sr-only">
+                      {names[cell]} — {dayFull[col]}, {row.hour}
+                    </span>
+                  </>
+                ) : (
+                  <span class="sr-only">
+                    {row.picked && col === 1
+                      ? `${freeLabel} — ${dayFull[col]}, ${row.hour}`
+                      : `Libre — ${dayFull[col]}, ${row.hour}`}
+                  </span>
+                )}
+              </td>
+            ))}
+          </tr>
+        ))
+      }
+    </tbody>
+  </table>
+
+  <div class="week-foot">
+    <ul class="legend">
+      {
+        weekLegend.map((c) => (
+          <li>
+            <span class:list={['swatch', `swatch--${c}`]} aria-hidden="true" />
+            {names[c]}
+          </li>
+        ))
+      }
+    </ul>
+    <p class="week-caption">{caption}</p>
+    <p class="week-note">{note}</p>
+  </div>
+</figure>

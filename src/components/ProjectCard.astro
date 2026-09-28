@@ -1,4 +1,6 @@
 ---
+import type { ColorName } from '../lib/palette';
+
 interface Props {
   title: string;
   tagline: string;
@@ -8,8 +10,10 @@ interface Props {
   repo: string;
   demo?: string;
   footnote?: string;
+  color: ColorName;
   demoLabel: string;
   codeLabel: string;
+  noDemoLabel: string;
 }
 
 const {
@@ -21,28 +25,48 @@ const {
   repo,
   demo,
   footnote,
+  color,
   demoLabel,
   codeLabel,
+  noDemoLabel,
 } = Astro.props;
 ---
 
-<article class="project">
-  <h3>{title}</h3>
-  <p class="tagline">{tagline}</p>
-  <p class="problem">{problem}</p>
+<article class="project" data-project={color}>
+  <div class="project-head">
+    <h3 class="project-title">{title}</h3>
+    <p class="project-tagline">{tagline}</p>
+  </div>
 
-  <ul>
+  <p class="project-problem">{problem}</p>
+
+  <ul class="project-points">
     {highlights.map((h) => <li>{h}</li>)}
   </ul>
 
-  <div class="stack-list">
-    {stack.map((s) => <span class="tag">{s}</span>)}
-  </div>
+  <p class="project-stack">
+    {stack.map((s, i) => (
+      <>
+        {i > 0 && <span class="sep" aria-hidden="true">/</span>}
+        <span>{s}</span>
+      </>
+    ))}
+  </p>
 
-  <div class="foot">
-    {demo && <a class="btn btn-primary" href={demo}>{demoLabel}</a>}
-    <a class="btn" href={repo} rel="noopener">{codeLabel}</a>
-  </div>
+  <p class="project-links">
+    {
+      demo ? (
+        <a class="link-go" href={demo}>
+          {demoLabel} <span class="arrow" aria-hidden="true">→</span>
+        </a>
+      ) : (
+        <span class="link-off">{noDemoLabel}</span>
+      )
+    }
+    <a class="link-go" href={repo} rel="noopener">
+      {codeLabel} <span class="arrow" aria-hidden="true">→</span>
+    </a>
+  </p>
 
-  {footnote && <p class="note">{footnote}</p>}
+  {footnote && <p class="project-footnote">{footnote}</p>}
 </article>

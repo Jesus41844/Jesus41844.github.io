@@ -6,7 +6,7 @@ interface Props {
   kind?: string;
   place?: string;
   body: string;
-  /** Texto del párrafo que describe lo que construiste para el cargo. */
+  /** Parrafo que describe lo que construiste para el cargo. */
   detail?: string;
 }
 
@@ -15,12 +15,16 @@ const { role, org, period, kind, place, body, detail } = Astro.props;
 const meta = [kind, place].filter(Boolean).join(' · ');
 ---
 
-<article class="role-item">
-  <div class="role-head">
-    <span class="role-title">{role}</span>
-    <span class="role-org">{org}</span>
+<article class="role">
+  <div class="role-when">
+    <p class="role-period">{period}</p>
+    {meta && <p class="role-meta">{meta}</p>}
   </div>
-  <p class="role-meta">{period}{meta && ` · ${meta}`}</p>
-  <p class="role-body">{body}</p>
-  {detail && <p class="role-body">{detail}</p>}
+
+  <div class="role-what">
+    <h3 class="role-title">{role}</h3>
+    <p class="role-org">{org}</p>
+    <p class="role-body">{body}</p>
+    {detail && <p class="role-detail">{detail}</p>}
+  </div>
 </article>

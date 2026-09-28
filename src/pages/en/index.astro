@@ -4,7 +4,8 @@ import Base from '../../layouts/Base.astro';
 import Hero from '../../components/Hero.astro';
 import ProjectCard from '../../components/ProjectCard.astro';
 import RoleItem from '../../components/RoleItem.astro';
-import { copy, type Locale } from '../../lib/i18n';
+import { copy, links, type Locale } from '../../lib/i18n';
+import { projectColor, type ColorName } from '../../lib/palette';
 
 const locale: Locale = 'en';
 const t = copy[locale];
@@ -17,46 +18,21 @@ const roles = (await getCollection('experience', ({ data }) => data.locale === l
   .sort((a, b) => a.data.order - b.data.order)
   .map((r) => ({ ...r.data, detail: r.body?.trim() }));
 
-const STACK = [
-  'TypeScript',
-  'Python',
-  'Next.js',
-  'React',
-  'Flask',
-  'FastAPI',
-  'PostgreSQL',
-  'Prisma',
-  'Drizzle',
-  'SQLAlchemy',
-  'Docker',
-  'Tailwind',
-  'Supabase',
-  'Vercel',
-  'GitHub Actions',
-  'vitest',
-  'pytest',
-];
+/** Short project title per color, for the grid legend. */
+const names = Object.fromEntries(
+  projects.map((p) => [projectColor[p.id] as ColorName, p.title]),
+) as Record<ColorName, string>;
+
+const description =
+  'Portfolio of Jesús de Gracia, software developer in Panama. Four applications in real use, three with public demos.';
 ---
 
-<Base
-  locale={locale}
-  title={`${t.name} — ${t.role}`}
-  description="Portfolio of Jesús de Gracia, software developer in Panama. Four applications in real use, with live demos."
->
-  <Hero
-    name={t.name}
-    role={t.role}
-    location={t.location}
-    summary={t.summary}
-    ctaRepo={t.ctaRepo}
-    ctaLinkedin={t.ctaLinkedin}
-  />
+<Base locale={locale} title={`${t.name} — ${t.role}`} description={description}>
+  <Hero locale={locale} names={names} />
 
-  <section id="projects">
-    <div class="sec-head">
-      <h2>{t.projectsTitle}</h2>
-      <p>{t.projectsIntro}</p>
-    </div>
+  <section id="projects" class="band">
+    <h2 class="band-label">{t.projectsLabel}</h2>
+    <p class="band-intro">{t.projectsIntro}</p>
     {
       projects.map((p) => (
         <ProjectCard
@@ -68,45 +44,33 @@ const STACK = [
           repo={p.repo}
           demo={p.demo}
           footnote={p.footnote}
+          color={projectColor[p.id] as ColorName}
           demoLabel={t.demo}
           codeLabel={t.code}
+          noDemoLabel={t.noDemo}
         />
       ))
     }
   </section>
 
-  <section id="experience">
-    <div class="sec-head">
-      <h2>{t.experienceTitle}</h2>
-      <p>{t.experienceIntro}</p>
-    </div>
+  <section id="experience" class="band">
+    <h2 class="band-label">{t.experienceLabel}</h2>
+    <p class="band-intro">{t.experienceIntro}</p>
     {roles.map((r) => <RoleItem {...r} />)}
   </section>
 
-  <section id="stack">
-    <div class="sec-head">
-      <h2>{t.stackTitle}</h2>
-      <p>{t.stackIntro}</p>
-    </div>
-    <div class="stack-list">
-      {STACK.map((s) => <span class="tag">{s}</span>)}
-    </div>
-  </section>
-
-  <section id="contact">
-    <div class="sec-head">
-      <h2>{t.contactTitle}</h2>
-    </div>
-    <div class="contact-box">
-      <p>{t.contactBody}</p>
-      <div class="cta">
-        <a
-          class="btn btn-primary"
-          href="https://www.linkedin.com/in/jesus-de-gracia-a1750a230/"
-          rel="me">LinkedIn</a
-        >
-        <a class="btn" href="https://github.com/Jesus41844">GitHub</a>
+  <section id="contact" class="band">
+    <h2 class="band-label">{t.contactLabel}</h2>
+    <p class="band-intro">{t.contactBody}</p>
+    <dl class="spec">
+      <div class="spec-row">
+        <dt>GitHub</dt>
+        <dd><a href={links.github}>{links.githubHandle}</a></dd>
       </div>
-    </div>
+      <div class="spec-row">
+        <dt>LinkedIn</dt>
+        <dd><a href={links.linkedin}>{links.linkedinHandle}</a></dd>
+      </div>
+    </dl>
   </section>
 </Base>

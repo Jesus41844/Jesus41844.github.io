@@ -1,27 +1,29 @@
 ---
+import WeekGrid from './WeekGrid.astro';
+import { type ColorName } from '../lib/palette';
+import { copy, type Locale } from '../lib/i18n';
+
 interface Props {
-  name: string;
-  role: string;
-  location: string;
-  summary: string;
-  ctaRepo: string;
-  ctaLinkedin: string;
+  locale: Locale;
+  names: Record<ColorName, string>;
 }
 
-const { name, role, location, summary, ctaRepo, ctaLinkedin } = Astro.props;
+const { locale, names } = Astro.props;
+const t = copy[locale];
 ---
 
 <header class="hero">
-  <h1>{name}</h1>
-  <p class="role">{role}</p>
-  <p class="where">{location}</p>
-  <p class="summary">{summary}</p>
-  <div class="cta">
-    <a class="btn btn-primary" href="https://github.com/Jesus41844">{ctaRepo}</a>
-    <a
-      class="btn"
-      href="https://www.linkedin.com/in/jesus-de-gracia-a1750a230/"
-      rel="me">{ctaLinkedin}</a
-    >
-  </div>
+  <p class="eyebrow">{t.heroEyebrow}</p>
+
+  <h1 class="thesis">{t.heroHeadline}</h1>
+
+  <p class="lede">{t.heroSub}</p>
+
+  <WeekGrid
+    locale={locale}
+    names={names}
+    caption={t.gridCaption}
+    freeLabel={t.gridFree}
+    note={t.gridNote}
+  />
 </header>

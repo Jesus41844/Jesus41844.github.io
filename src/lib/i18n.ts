@@ -11,25 +11,30 @@ interface Copy {
   name: string;
   role: string;
   location: string;
-  summary: string;
-  ctaRepo: string;
-  ctaLinkedin: string;
+  /** Zona horaria, tal como aparece en un horario impreso. */
+  zone: string;
+  skip: string;
   navProjects: string;
   navExperience: string;
-  navStack: string;
   navContact: string;
-  projectsTitle: string;
+  navLang: string;
+  heroEyebrow: string;
+  heroHeadline: string;
+  heroSub: string;
+  gridCaption: string;
+  gridFree: string;
+  gridNote: string;
+  projectsLabel: string;
   projectsIntro: string;
   demo: string;
   code: string;
-  experienceTitle: string;
+  noDemo: string;
+  experienceLabel: string;
   experienceIntro: string;
-  stackTitle: string;
-  stackIntro: string;
-  contactTitle: string;
+  techLabel: string;
+  contactLabel: string;
   contactBody: string;
   langSwitch: string;
-  current: string;
   footerNote: string;
 }
 
@@ -38,65 +43,91 @@ export const copy: Record<Locale, Copy> = {
     htmlLang: 'es',
     name: 'Jesús de Gracia',
     role: 'Desarrollador de software',
-    location: 'Panamá, Panamá',
-    summary:
-      'Estudiante de Ingeniería en Sistemas Computacionales en la UTP. Construyo software que resuelve problemas concretos de personas y organizaciones cercanas a mí: una agrupación estudiantil, un laboratorio de producción, una quincena de gastos.',
-    ctaRepo: 'Ver código en GitHub',
-    ctaLinkedin: 'Conectar en LinkedIn',
+    location: 'Panamá',
+    zone: 'UTC−5',
+    skip: 'Saltar al contenido',
     navProjects: 'Proyectos',
-    navExperience: 'Experiencia',
-    navStack: 'Tecnologías',
+    navExperience: 'Cargos',
     navContact: 'Contacto',
-    projectsTitle: 'Proyectos',
+    navLang: 'English',
+    heroEyebrow: 'Cuatro aplicaciones · una misma pregunta',
+    heroHeadline: 'Software para cuando el calendario no sigue la regla.',
+    heroSub:
+      'Cada proyecto aquí nació de un supuesto que resultó falso: que la quincena dura quince días, que un hueco de cinco minutos es tiempo libre, que las tareas de la semana caben en un mensaje. Escribo software que modela la realidad en lugar del calendario ideal.',
+    gridCaption:
+      'Una semana tipo. Cada color es una aplicación; los espacios en blanco son lo que queda libre.',
+    gridFree: 'Libre',
+    gridNote:
+      'Cuando veinte personas cruzan sus horarios, alguien tiene que señalar la franja que sí funciona. Eso fue lo primero que programé.',
+    projectsLabel: 'Proyectos · 04',
     projectsIntro:
       'Cuatro aplicaciones que están en uso, no ejercicios de clase. Tres se pueden abrir ahora mismo.',
     demo: 'Abrir la app',
     code: 'Código',
-    experienceTitle: 'Experiencia y cargos',
+    noDemo: 'Sin demo pública',
+    experienceLabel: 'Cargos · 03',
     experienceIntro:
       'Dos de estas herramientas las construí para las organizaciones donde tengo cargo.',
-    stackTitle: 'Tecnologías',
-    stackIntro: 'Lo que uso a diario.',
-    contactTitle: 'Contacto',
+    techLabel: 'Tecnologías',
+    contactLabel: 'Contacto',
     contactBody:
       'Si estás armando un equipo y necesitas a alguien que entienda de sistemas y de gente, escríbeme. Respondo siempre.',
-    langSwitch: 'English',
-    current: 'actualidad',
-    footerNote: 'Hecho con Astro. Código con licencia MIT.',
+    langSwitch: 'Español',
+    footerNote: 'Astro · MIT',
   },
   en: {
     htmlLang: 'en',
     name: 'Jesús de Gracia',
     role: 'Software developer',
-    location: 'Panama City, Panama',
-    summary:
-      'Systems engineering student at UTP. I build software that solves concrete problems for the people and organizations closest to me: a student group a few steps away, a small production lab, a two-week pay period.',
-    ctaRepo: 'View code on GitHub',
-    ctaLinkedin: 'Connect on LinkedIn',
+    location: 'Panama',
+    zone: 'UTC−5',
+    skip: 'Skip to content',
     navProjects: 'Projects',
-    navExperience: 'Experience',
-    navStack: 'Stack',
+    navExperience: 'Roles',
     navContact: 'Contact',
-    projectsTitle: 'Projects',
+    navLang: 'Español',
+    heroEyebrow: 'Four applications · one same question',
+    heroHeadline: 'Software for when the calendar does not follow the rule.',
+    heroSub:
+      'Every project here started from an assumption that turned out to be false: that a pay period lasts fifteen days, that a five-minute gap is free time, that the week’s tasks fit in one message. I write software that models reality instead of the ideal calendar.',
+    gridCaption:
+      'A typical week. Each color is an application; the empty cells are what is left free.',
+    gridFree: 'Free',
+    gridNote:
+      'When twenty people cross their timetables, someone has to point at the slot that actually works. That was the first thing I programmed.',
+    projectsLabel: 'Projects · 04',
     projectsIntro:
       'Four applications that are actually in use, not class exercises. Three of them are live right now.',
     demo: 'Open the app',
     code: 'Code',
-    experienceTitle: 'Experience',
+    noDemo: 'No public demo',
+    experienceLabel: 'Roles · 03',
     experienceIntro:
       'Two of these tools I built for the organizations where I hold a position.',
-    stackTitle: 'Stack',
-    stackIntro: 'What I use daily.',
-    contactTitle: 'Contact',
+    techLabel: 'Technologies',
+    contactLabel: 'Contact',
     contactBody:
-      "If you're assembling a team and need someone who understands systems and people, get in touch. I always reply.",
+      'If you are assembling a team and need someone who understands systems and people, get in touch. I always reply.',
     langSwitch: 'Español',
-    current: 'present',
-    footerNote: 'Built with Astro. Code under the MIT license.',
+    footerNote: 'Astro · MIT',
   },
 };
 
 export const links = {
   github: 'https://github.com/Jesus41844',
+  githubHandle: 'github.com/Jesus41844',
   linkedin: 'https://www.linkedin.com/in/jesus-de-gracia-a1750a230/',
+  linkedinHandle: 'in/jesus-de-gracia-a1750a230',
 } as const;
+
+/** Nombres largos de los dias, para el texto que solo lee el lector de pantalla. */
+export const weekDayFull: Record<Locale, string[]> = {
+  es: ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes'],
+  en: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+};
+
+/** Etiqueta del encabezado de la columna de horas. */
+export const weekHourLabel: Record<Locale, string> = {
+  es: 'Hora',
+  en: 'Hour',
+};
