@@ -1,0 +1,42 @@
+---
+import { copy, type Locale } from '../lib/i18n';
+
+interface Props {
+  locale: Locale;
+  lead: string;
+  body: string[];
+}
+
+const { locale, lead, body } = Astro.props;
+const t = copy[locale];
+
+/**
+ * El unico markdown que se acepta aqui: **negrita**. Se decide a mano en vez
+ * de pasar el texto por un parser entero, porque el unico uso real es dejar
+ * dos palabras mas oscuras que el resto: la pregunta que se repite y la
+ * palabra "pasantia". Si alguien mete un enlace o una lista aqui, no sale.
+ */
+const rich = (s: string) =>
+  s.split(/(\*\*[^*]+\*\*)/g).filter(Boolean).map((part) =>
+    part.startsWith('**') && part.endsWith('**')
+      ? { text: part.slice(2, -2), strong: true }
+      : { text: part, strong: false },
+  );
+---
+
+<section id="about" class="band">
+  <h2 class="band-label">{t.aboutLabel}</h2>
+
+  <div class="about">
+    <p class="about-lead">{lead}</p>
+    {
+      body.map((para) => (
+        <p class="about-para">
+          {rich(para).map((part) =>
+            part.strong ? <strong>{part.text}</strong> : <span>{part.text}</span>,
+          )}
+        </p>
+      ))
+    }
+  </div>
+</section>

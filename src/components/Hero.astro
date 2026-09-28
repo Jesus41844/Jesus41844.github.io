@@ -1,7 +1,7 @@
 ---
 import WeekGrid from './WeekGrid.astro';
 import { type ColorName } from '../lib/palette';
-import { copy, type Locale } from '../lib/i18n';
+import { copy, links, type Locale } from '../lib/i18n';
 
 interface Props {
   locale: Locale;
@@ -10,14 +10,33 @@ interface Props {
 
 const { locale, names } = Astro.props;
 const t = copy[locale];
+
+/** Sin correo configurado el CTA de email no se renderiza, en vez de
+ *  renderizar un mailto: vacio que nadie puede usar. */
+const mailto = links.email ? `mailto:${links.email}` : null;
 ---
 
 <header class="hero">
+  <p class="hero-badge">
+    <span class="hero-badge-dot" aria-hidden="true"></span>
+    {t.heroBadge}
+  </p>
+
   <p class="eyebrow">{t.heroEyebrow}</p>
 
   <h1 class="thesis">{t.heroHeadline}</h1>
 
   <p class="lede">{t.heroSub}</p>
+
+  <p class="hero-ctas">
+    {mailto && (
+      <a class="cta cta--mail" href={mailto}>
+        {t.ctaEmail}
+      </a>
+    )}
+    <a class="cta" href={links.linkedin} rel="noopener">{t.ctaLinkedin}</a>
+    <a class="cta" href={links.github} rel="noopener">{t.ctaGithub}</a>
+  </p>
 
   <WeekGrid
     locale={locale}

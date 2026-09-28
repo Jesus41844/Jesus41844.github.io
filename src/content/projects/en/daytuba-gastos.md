@@ -22,6 +22,9 @@ stack:
   - PostgreSQL
   - Supabase
   - vitest
+image: /projects/daytuba-gastos.png
+# 537x589 en una caja de 792x519: con `cover` se agranda 1.47x.
+imageFit: contain
 repo: https://github.com/Jesus41844/DaytubaGastos
 footnote: >-
   There is deliberately no public demo: the deployed copy is my own personal

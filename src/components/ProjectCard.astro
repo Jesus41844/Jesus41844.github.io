@@ -10,11 +10,17 @@ interface Props {
   repo: string;
   demo?: string;
   footnote?: string;
+  image?: string;
+  imageCaption?: string;
+  imageFit?: 'cover' | 'contain';
   color: ColorName;
   status: string;
   demoLabel: string;
   codeLabel: string;
   noDemoLabel: string;
+  shotCaption: string;
+  noShot: string;
+  stackLabel: string;
 }
 
 const {
@@ -26,11 +32,17 @@ const {
   repo,
   demo,
   footnote,
+  image,
+  imageCaption,
+  imageFit,
   color,
   status,
   demoLabel,
   codeLabel,
   noDemoLabel,
+  shotCaption,
+  noShot,
+  stackLabel,
 } = Astro.props;
 ---
 
@@ -41,20 +53,40 @@ const {
     <p class="project-status">{status}</p>
   </div>
 
+  <figure class="project-shot">
+    {
+      image ? (
+        <>
+          <img
+            src={image}
+            alt={`${title}: captura de la aplicación`}
+            loading="lazy"
+            decoding="async"
+            style={imageFit ? `object-fit:${imageFit}` : undefined}
+          />
+          <figcaption>{imageCaption ?? shotCaption}</figcaption>
+        </>
+      ) : (
+        <>
+          <div class="shot-empty" aria-hidden="true" />
+          <figcaption>{noShot}</figcaption>
+        </>
+      )
+    }
+  </figure>
+
   <p class="project-problem">{problem}</p>
 
   <ul class="project-points">
     {highlights.map((h) => <li>{h}</li>)}
   </ul>
 
-  <p class="project-stack">
-    {stack.map((s, i) => (
-      <>
-        {i > 0 && <span class="sep" aria-hidden="true">/</span>}
-        <span>{s}</span>
-      </>
-    ))}
-  </p>
+  <div class="project-stack">
+    <span class="project-stack-label">{stackLabel}</span>
+    <ul class="chips">
+      {stack.map((s) => <li>{s}</li>)}
+    </ul>
+  </div>
 
   <p class="project-links">
     {

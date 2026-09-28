@@ -19,6 +19,30 @@ const projects = defineCollection({
     status: z.string(),
     /** Nota al pie para proyectos sin demo (app de escritorio, etc). */
     footnote: z.string().optional(),
+    /** Captura real de la app, dentro de /public. Ausente = sin imagen. */
+    image: z.string().optional(),
+    /** Pie de la captura, en mono. Si no se da, se usa "captura real". */
+    imageCaption: z.string().optional(),
+    /** `contain` para capturas mas pequenas que la caja: `cover` las
+     *  agranda y las deja blandas en pantallas 2x. Por defecto, `cover`. */
+    imageFit: z.enum(['cover', 'contain']).optional(),
+  }),
+});
+
+/**
+ * La seccion "Sobre mi". Es una sola pieza de prosa por idioma, pero va como
+ * coleccion y no dentro de i18n.ts porque es contenido, no interfaz: asi se
+ * escribe y se revisa como una hoja, y no se pierde en un archivo de copy.
+ */
+const about = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/about' }),
+  schema: z.object({
+    id: z.string(),
+    locale: z.enum(['es', 'en']),
+    /** Parrafo de arranque, en el Tamano del titular. */
+    lead: z.string(),
+    /** Parrafos del cuerpo. El ultimo puede llevar el enlace de contacto. */
+    body: z.array(z.string()),
   }),
 });
 
@@ -39,4 +63,4 @@ const experience = defineCollection({
   }),
 });
 
-export const collections = { projects, experience };
+export const collections = { projects, experience, about };

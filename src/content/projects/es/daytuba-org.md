@@ -23,6 +23,7 @@ stack:
   - PostgreSQL
   - Drizzle ORM
   - Docker
+image: /projects/daytuba-org.png
 repo: https://github.com/Jesus41844/Daytuba_ORG
 demo: https://daytuba-org.vercel.app
 ---

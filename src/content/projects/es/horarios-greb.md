@@ -21,6 +21,7 @@ stack:
   - pdfplumber
   - JavaScript
   - pytest
+image: /projects/horarios.png
 repo: https://github.com/Jesus41844/Horarios_GREB
 demo: https://horarios-greb.vercel.app
 footnote: >-

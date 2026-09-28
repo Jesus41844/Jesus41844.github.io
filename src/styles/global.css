@@ -217,6 +217,51 @@ a {
   color: var(--ink-soft);
 }
 
+/* El badge va antes del titular y no, despues: es lo unico de la portada que
+   responde "esta buscando trabajo", y si queda al final ya se leyo todo. */
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin-bottom: 1.15rem;
+  padding: 0.24rem 0.6rem;
+  border: 1px solid var(--rule);
+  background: var(--panel);
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ink);
+}
+
+.hero-badge-dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  background: var(--moss);
+}
+
+.hero-ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1.3rem;
+  margin-top: 1.5rem;
+}
+
+.cta {
+  font-family: var(--mono);
+  font-size: 0.74rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ink);
+  padding-bottom: 0.15rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+.cta:hover,
+.cta:focus-visible {
+  border-bottom-color: var(--ink);
+}
+
 /* ---------- la rejilla: el elemento que define el sitio ---------- */
 
 .week {
@@ -452,7 +497,6 @@ a {
 }
 
 .project-head {
-  grid-row: span 4;
   align-self: start;
   position: relative;
   padding-left: 0.85rem;
@@ -589,12 +633,84 @@ a {
     gap: 0;
   }
   .project-head {
-    grid-row: auto;
     margin-bottom: 0.9rem;
   }
   .project-footnote {
     grid-column: auto;
   }
+}
+
+/* La captura se trata como una figura de plano: marco de linea fina, fondo de
+   panel para la letterbox, y el pie en mono. Sin sombra y sin esquinas
+   redondeadas, porque el resto de la pagina es plano a proposito y una sombra
+   aqui romperia el mismo plano que sostiene todo. */
+.project-shot {
+  margin: 0 0 1.15rem;
+}
+
+.project-shot img,
+.shot-empty {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  object-position: top;
+  border: 1px solid var(--rule);
+  background: var(--panel);
+}
+
+.shot-empty {
+  display: grid;
+  place-items: center;
+  color: var(--ink-faint);
+}
+
+.shot-empty::after {
+  content: "\2014";
+  font-family: var(--mono);
+  opacity: 0.55;
+}
+
+.project-shot figcaption {
+  margin-top: 0.4rem;
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ink-faint);
+}
+
+.project-stack {
+  display: block;
+  margin-top: 1.1rem;
+}
+
+.project-stack-label {
+  display: block;
+  margin-bottom: 0.45rem;
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ink-faint);
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.32rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.chips li {
+  padding: 0.16rem 0.5rem;
+  border: 1px solid var(--rule);
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.02em;
+  color: var(--ink-soft);
 }
 
 /* ---------- cargos ---------- */
@@ -665,6 +781,40 @@ a {
   .role-meta {
     margin-top: 0;
   }
+}
+
+/* ---------- sobre mi ---------- */
+
+.about {
+  max-width: 42rem;
+  margin-top: 1.9rem;
+}
+
+.about-lead {
+  font-family: var(--cond);
+  font-size: 1.55rem;
+  font-weight: 600;
+  line-height: 1.24;
+  letter-spacing: -0.005em;
+  color: var(--ink);
+  margin-bottom: 1.2rem;
+}
+
+.about-para {
+  color: var(--ink-soft);
+  line-height: 1.66;
+}
+
+.about-para + .about-para {
+  margin-top: 0.85rem;
+}
+
+/* La pregunta que se repite y la palabra "pasantia" van mas oscuras que el
+   resto: son las dos unicas palabras del sitio que un reclutador deberia
+   poder encontrar escaneando. */
+.about-para strong {
+  font-weight: 600;
+  color: var(--ink);
 }
 
 /* ---------- contacto ---------- */

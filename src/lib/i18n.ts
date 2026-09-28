@@ -16,11 +16,16 @@ interface Copy {
   skip: string;
   navProjects: string;
   navExperience: string;
+  navAbout: string;
   navContact: string;
   navLang: string;
+  heroBadge: string;
   heroEyebrow: string;
   heroHeadline: string;
   heroSub: string;
+  ctaEmail: string;
+  ctaLinkedin: string;
+  ctaGithub: string;
   gridCaption: string;
   gridFree: string;
   gridNote: string;
@@ -31,6 +36,10 @@ interface Copy {
   noDemo: string;
   experienceLabel: string;
   experienceIntro: string;
+  aboutLabel: string;
+  shotCaption: string;
+  noShot: string;
+  stackLabel: string;
   techLabel: string;
   contactLabel: string;
   contactBody: string;
@@ -47,13 +56,18 @@ export const copy: Record<Locale, Copy> = {
     zone: 'UTC−5',
     skip: 'Saltar al contenido',
     navProjects: 'Proyectos',
-    navExperience: 'Trayectoria',
+    navExperience: 'Experiencia',
+    navAbout: 'Sobre mí',
     navContact: 'Contacto',
     navLang: 'English',
+    heroBadge: 'En busca de una pasantía',
     heroEyebrow: 'Cuatro aplicaciones · una misma pregunta',
     heroHeadline: 'Software para cuando el calendario no sigue la regla.',
     heroSub:
       'Cada proyecto aquí nació de un supuesto que resultó falso: que la quincena dura quince días, que un hueco de cinco minutos es tiempo libre, que las tareas de la semana caben en un mensaje. Escribo software que modela la realidad en lugar del calendario ideal.',
+    ctaEmail: 'Escríbeme',
+    ctaLinkedin: 'LinkedIn',
+    ctaGithub: 'GitHub',
     gridCaption:
       'Una semana tipo. Cada color es una aplicación; los espacios en blanco son lo que queda libre.',
     gridFree: 'Libre',
@@ -65,9 +79,13 @@ export const copy: Record<Locale, Copy> = {
     demo: 'Abrir la app',
     code: 'Código',
     noDemo: 'Sin demo pública',
-    experienceLabel: 'Trayectoria · 04',
+    experienceLabel: 'Experiencia · 04',
     experienceIntro:
       'Dos de estas herramientas las construí para las organizaciones donde tengo cargo. Y dos de los cargos no son un trabajo: es dirigir una agrupación y organizar un congreso.',
+    aboutLabel: 'Sobre mí',
+    shotCaption: 'captura real',
+    noShot: 'sin captura: app de escritorio',
+    stackLabel: 'Con qué está hecho',
     techLabel: 'Tecnologías',
     contactLabel: 'Contacto',
     contactBody:
@@ -83,13 +101,18 @@ export const copy: Record<Locale, Copy> = {
     zone: 'UTC−5',
     skip: 'Skip to content',
     navProjects: 'Projects',
-    navExperience: 'Background',
+    navExperience: 'Experience',
+    navAbout: 'About',
     navContact: 'Contact',
     navLang: 'Español',
+    heroBadge: 'Looking for an internship',
     heroEyebrow: 'Four applications · the same question',
     heroHeadline: 'Software for when the calendar does not follow the rule.',
     heroSub:
       'Every project here started from an assumption that turned out to be false: that a pay period lasts fifteen days, that a five-minute gap is free time, that the week’s tasks fit in one message. I write software that models reality instead of the ideal calendar.',
+    ctaEmail: 'Email me',
+    ctaLinkedin: 'LinkedIn',
+    ctaGithub: 'GitHub',
     gridCaption:
       'A typical week. Each color is an application; the empty cells are what is left free.',
     gridFree: 'Free',
@@ -101,9 +124,13 @@ export const copy: Record<Locale, Copy> = {
     demo: 'Open the app',
     code: 'Code',
     noDemo: 'No public demo',
-    experienceLabel: 'Background · 04',
+    experienceLabel: 'Experience · 04',
     experienceIntro:
       'Two of these tools I built for the organizations where I hold a position. And two of the entries below are not jobs: running a student group and organizing a congress.',
+    aboutLabel: 'About',
+    shotCaption: 'real screenshot',
+    noShot: 'no screenshot: desktop app',
+    stackLabel: 'Built with',
     techLabel: 'Technologies',
     contactLabel: 'Contact',
     contactBody:
@@ -118,6 +145,8 @@ export const links = {
   githubHandle: 'github.com/Jesus41844',
   linkedin: 'https://www.linkedin.com/in/jesus-de-gracia-a1750a230/',
   linkedinHandle: 'in/jesus-de-gracia-a1750a230',
+  /** Vacio hasta que Jesus mande el correo: sin el, el CTA de email no sale. */
+  email: '',
 } as const;
 
 /** Nombres largos de los dias, para el texto que solo lee el lector de pantalla. */

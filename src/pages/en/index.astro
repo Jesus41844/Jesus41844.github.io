@@ -4,6 +4,7 @@ import Base from '../../layouts/Base.astro';
 import Hero from '../../components/Hero.astro';
 import ProjectCard from '../../components/ProjectCard.astro';
 import RoleItem from '../../components/RoleItem.astro';
+import About from '../../components/About.astro';
 import { copy, links, type Locale } from '../../lib/i18n';
 import { projectColor, type ColorName } from '../../lib/palette';
 
@@ -18,13 +19,17 @@ const roles = (await getCollection('experience', ({ data }) => data.locale === l
   .sort((a, b) => a.data.order - b.data.order)
   .map((r) => ({ ...r.data, detail: r.body?.trim() }));
 
+const about = (await getCollection('about', ({ data }) => data.locale === locale)).map(
+  (a) => a.data,
+)[0];
+
 /** Short project title per color, for the grid legend. */
 const names = Object.fromEntries(
   projects.map((p) => [projectColor[p.id] as ColorName, p.title]),
 ) as Record<ColorName, string>;
 
 const description =
-  'Portfolio of Jesús de Gracia, software developer in Panama. Four applications in real use, two with public demos.';
+  'Portfolio of Jesús de Gracia, software developer in Panama, third-year Systems and Computer Engineering student. Four applications in real use, two with public demos. Looking for an internship in robotics, AI or ML.';
 ---
 
 <Base locale={locale} title={`${t.name} — ${t.role}`} description={description}>
@@ -44,11 +49,17 @@ const description =
           repo={p.repo}
           demo={p.demo}
           footnote={p.footnote}
+          image={p.image}
+          imageCaption={p.imageCaption}
+          imageFit={p.imageFit}
           color={projectColor[p.id] as ColorName}
           status={p.status}
           demoLabel={t.demo}
           codeLabel={t.code}
           noDemoLabel={t.noDemo}
+          shotCaption={t.shotCaption}
+          noShot={t.noShot}
+          stackLabel={t.stackLabel}
         />
       ))
     }
@@ -59,6 +70,8 @@ const description =
     <p class="band-intro">{t.experienceIntro}</p>
     {roles.map((r) => <RoleItem {...r} />)}
   </section>
+
+  {about && <About locale={locale} lead={about.lead} body={about.body} />}
 
   <section id="contact" class="band">
     <h2 class="band-label">{t.contactLabel}</h2>

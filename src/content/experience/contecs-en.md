@@ -19,3 +19,8 @@ job was making it happen: setting the schedule, and convincing twenty students
 to give up some of their free time to organize it. For the second edition the
 committee was chosen through an open call, out of 29 proposals from
 high-performing students.
+
+For the 2026 edition I built the registration system: QR code scanning at the
+door and export to PDF and Excel. I tested it first at one of my own
+organization's events, where the details got tightened, so it reached the
+congress already proven.

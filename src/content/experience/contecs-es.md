@@ -19,3 +19,7 @@ mi trabajo fue lograr que saliera: definir el cronograma, y convencer a veinte
 estudiantes de que organizaran algo en su tiempo libre. Para la segunda el
 comité se escogió por convocatoria, con 29 propuestas de estudiantes de alto
 rendimiento.
+
+Para el congreso de 2026 construí el sistema de registro: lectura de código QR
+en la entrada y exportación a PDF y Excel. Lo probé primero en un evento de mi
+agrupación, donde se afinaron los detalles, y así llegó al congreso ya probado.
