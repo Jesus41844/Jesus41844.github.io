@@ -2,8 +2,7 @@
 id: about
 locale: en
 lead: >-
-  I started at fifteen, during the pandemic, making a character jump. It was not
-  a course, nor a school assignment.
+  I started at fifteen, during the pandemic, making a character jump.
 body:
   - >-
     I am now a third-year Systems and Computer Engineering student at UTP, and I

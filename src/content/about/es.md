@@ -2,8 +2,7 @@
 id: about
 locale: es
 lead: >-
-  Empecé a los quince años, en pandemia, haciendo que un personaje saltara. No
-  fue un curso ni una tarea de escuela.
+  Empecé a los quince años, en pandemia, haciendo que un personaje saltara.
 body:
   - >-
     Ahora soy estudiante de tercer año de Ingeniería en Sistemas y Computación
