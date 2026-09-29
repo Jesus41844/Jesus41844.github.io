@@ -11,7 +11,7 @@ body:
     problems where software has to understand something about the physical world,
     not just sort a table.
   - >-
-    On Sundays I think and build new ideas, and it is the same question that runs
-    through everything here: **what is breaking here?** When something gets
-    stuck, I go into the problem until it stops being one.
+    In my free time I think and build new ideas, and the same question runs
+    through everything I do: **what can be made more efficient?** When a task
+    becomes repetitive, I always find a way to make it stop being one.
 ---

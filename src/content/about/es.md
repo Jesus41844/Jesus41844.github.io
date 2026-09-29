@@ -11,7 +11,8 @@ body:
     problemas donde el software tiene que entender algo del mundo físico, no solo
     ordenar una tabla.
   - >-
-    Los domingos los paso pensando y desarrollando ideas nuevas, y es la misma
-    pregunta que se repite en todo lo de aquí: **¿qué está fallando acá?** Cuando
-    algo se atasca, me voy al problema hasta que deja de estarlo.
+    En mis tiempos libres me los paso pensando y desarrollando ideas nuevas, y
+    la misma pregunta se repite en todo lo que hago: **¿qué se puede hacer más
+    eficiente?** Cuando una tarea se vuelve muy repetitiva, siempre encuentro
+    una forma de que deje de serlo.
 ---
