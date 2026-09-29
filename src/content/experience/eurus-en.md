@@ -6,9 +6,9 @@ role: Vice President
 org: EURUS Student Organization
 period: Jan 2026 – present
 body: >-
-  Non-profit student organization in the Faculty of Computer Systems
-  Engineering, focused on the overall development of its students and
-  encouraging them to build their own projects.
+  Student organization in the Faculty of Computer Systems Engineering, focused
+  on the overall development of its students and encouraging them to build their
+  own projects.
 ---
 
 For EurusConf we used the same QR registration system I had already built for

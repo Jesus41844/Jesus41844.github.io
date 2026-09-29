@@ -6,9 +6,9 @@ role: Vicepresidente
 org: Agrupación Estudiantil EURUS
 period: ene. 2026 – actualidad
 body: >-
-  Agrupación estudiantil sin fines de lucro de la Facultad de Ingeniería en
-  Sistemas Computacionales, que impulsa el desarrollo integral de sus
-  estudiantes y los incentiva a desarrollar proyectos propios.
+  Agrupación estudiantil de la Facultad de Ingeniería en Sistemas
+  Computacionales, que impulsa el desarrollo integral de sus estudiantes y los
+  incentiva a desarrollar proyectos propios.
 ---
 
 Para el EurusConf usamos el mismo sistema de registro con QR que ya había

@@ -7,12 +7,12 @@ org: Grupo de Robótica Evolutiva Bioinspirada (GREB)
 period: ene. 2026 – actualidad
 place: Panamá
 body: >-
-  Unidad de investigación dentro de la agrupación estudiantil EURUS, en la
-  Facultad de Ingeniería en Sistemas Computacionales de la UTP. El grupo
-  organiza talleres de robótica bioinspirada para estudiantes de primer año.
+  Agrupación Estudiantil de la Facultad de Ingeniería en Sistemas
+  Computacionales de la UTP. Preparamos a los estudiantes con talleres de
+  robótica e incentivando a investigar en esta área.
 projectId: horarios-greb
 ---
 
-Construí la herramienta con la que el grupo coordina sus horarios y encuentra
-el tramo en que todo el mundo está libre. Antes se acomodaban las reuniones a
-ojo, y por eso medio grupo no llegaba.
+De aquí surgió la herramienta para coordinar horarios, encontrando el tramo en
+que todo el mundo está libre. Antes se acomodaban las reuniones a ojo, y por
+eso medio grupo no llegaba.
