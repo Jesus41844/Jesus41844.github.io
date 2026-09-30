@@ -34,8 +34,8 @@ const mailto = links.email ? `mailto:${links.email}` : null;
         {t.ctaEmail}
       </a>
     )}
-    <a class="cta" href={links.linkedin} rel="noopener">{t.ctaLinkedin}</a>
-    <a class="cta" href={links.github} rel="noopener">{t.ctaGithub}</a>
+    <a class="cta" href={links.linkedin} target="_blank" rel="noopener noreferrer">{t.ctaLinkedin}</a>
+    <a class="cta" href={links.github} target="_blank" rel="noopener noreferrer">{t.ctaGithub}</a>
   </p>
 
   <WeekGrid
