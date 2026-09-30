@@ -89,7 +89,7 @@ export const copy: Record<Locale, Copy> = {
     techLabel: 'Tecnologías',
     contactLabel: 'Contacto',
     contactBody:
-      'Si estás armando un equipo y necesitas a alguien que entienda de sistemas y de gente, escríbeme. Respondo siempre.',
+      'Busco una pasantía en robótica, IA o machine learning a partir de febrero de 2027. Si tu equipo tiene un problema donde el software tiene que entender algo del mundo físico, escríbeme y te cuento cómo lo abordaría.',
     langSwitch: 'Español',
     footerNote: 'Astro · MIT',
   },
@@ -134,7 +134,7 @@ export const copy: Record<Locale, Copy> = {
     techLabel: 'Technologies',
     contactLabel: 'Contact',
     contactBody:
-      'If you are assembling a team and need someone who understands systems and people, get in touch. I always reply.',
+      'I am looking for an internship in robotics, AI or machine learning starting February 2027. If your team has a problem where software has to make sense of something in the physical world, write to me and I will tell you how I would approach it.',
     langSwitch: 'Español',
     footerNote: 'Astro · MIT',
   },

@@ -6,9 +6,7 @@ lead: >-
 body:
   - >-
     Ahora soy estudiante de tercer año de Ingeniería en Sistemas y Computación
-    en la UTP, y busco una **pasantía** en robótica, IA o machine learning: los
-    problemas donde el software tiene que entender algo del mundo físico, no solo
-    ordenar una tabla.
+    en la UTP.
   - >-
     En mis tiempos libres me los paso pensando y desarrollando ideas nuevas, y
     la misma pregunta se repite en todo lo que hago: **¿qué se puede hacer más

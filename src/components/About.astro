@@ -13,8 +13,10 @@ const t = copy[locale];
 /**
  * El unico markdown que se acepta aqui: **negrita**. Se decide a mano en vez
  * de pasar el texto por un parser entero, porque el unico uso real es dejar
- * dos palabras mas oscuras que el resto: la pregunta que se repite y la
- * palabra "pasantia". Si alguien mete un enlace o una lista aqui, no sale.
+ * una frase mas oscura que el resto: la pregunta que se repite. Antes eran
+ * dos, con la palabra "pasantia", pero esa pego a la seccion de Contacto y
+ * repetirla a cuatro pantallas era el mismo problema resuelto al reves.
+ * Si alguien mete un enlace o una lista aqui, no sale.
  */
 const rich = (s: string) =>
   s.split(/(\*\*[^*]+\*\*)/g).filter(Boolean).map((part) =>
