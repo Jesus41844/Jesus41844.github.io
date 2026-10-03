@@ -2,7 +2,7 @@
 id: eurusconf
 locale: es
 order: 4
-role: Apoyo organizativo
+role: Organizador
 org: EurusConf
 period: jun. 2026
 images:

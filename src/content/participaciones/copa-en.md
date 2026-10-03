@@ -17,5 +17,5 @@ body: >-
   Copa Airlines Hackathon 2025, sixth edition: data analytics and artificial
   intelligence, with 129 teams from across the region, one day of talks and one
   of timed technical challenges. We worked with AWS SageMaker Canvas and
-  Databricks. I took part with the team.
+  Databricks. Our team came fifth out of 129.
 ---

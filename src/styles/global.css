@@ -1269,7 +1269,20 @@ linea rompen el aire tecnico de la pagina. */
 .part-strip {
   grid-column: 1 / -1;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  /* Celda fija, del tamaño que tienen las del Hackathon COPA, para que todas
+     las galerias se vean igual sin importar cuantas fotos tenga cada una.
+     Con celdas de 1fr, una entrada de cuatro sacaba celdas de 260px y una de
+     dos sacaba de 530px: cada galeria con su medida.
+
+     `justify-content: center` porque con celdas fijas una entrada de dos fotos
+     deja hueco a la derecha y se lee como rota, que es justo lo que se
+     corrigio antes. El grupo centrado no deja ese hueco.
+
+     `minmax(0, 21.75rem)` y no un ancho fijo: con 348px fijos la celda no
+     cabia en un movil de 320 y desbordaba 14px. El min permite que en angosto
+     la celda encoja, y el max la mantiene en 348 cuando hay sitio. */
+  grid-template-columns: repeat(auto-fit, minmax(0, 21.75rem));
+  justify-content: center;
   gap: 0.7rem;
   margin: 0.7rem 0 0.2rem;
 }

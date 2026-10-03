@@ -2,7 +2,7 @@
 id: eurusconf
 locale: en
 order: 4
-role: Logistics support
+role: Organizer
 org: EurusConf
 period: Jun 2026
 images:
