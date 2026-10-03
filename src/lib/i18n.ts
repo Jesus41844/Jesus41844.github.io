@@ -36,6 +36,15 @@ interface Copy {
   noDemo: string;
   experienceLabel: string;
   experienceIntro: string;
+  orgLabel: string;
+  orgIntro: string;
+  workLabel: string;
+  workIntro: string;
+  partLabel: string;
+  partIntro: string;
+  certLabel: string;
+  certIntro: string;
+  navPart: string;
   aboutLabel: string;
   shotCaption: string;
   noShot: string;
@@ -73,7 +82,7 @@ export const copy: Record<Locale, Copy> = {
     gridFree: 'Libre',
     gridNote:
       'Cuando veinte personas cruzan sus horarios, alguien tiene que señalar la franja que sí funciona. Eso fue lo primero que programé.',
-    projectsLabel: 'Proyectos · 04',
+    projectsLabel: 'Proyectos',
     projectsIntro:
       'Cuatro aplicaciones que están en uso, no ejercicios de clase. Dos se pueden abrir ahora mismo.',
     demo: 'Abrir la app',
@@ -82,6 +91,18 @@ export const copy: Record<Locale, Copy> = {
     experienceLabel: 'Experiencia · 04',
     experienceIntro:
       'Dos de estas herramientas las construí para las organizaciones donde tengo cargo. Y dos de los cargos no son un trabajo: es dirigir una agrupación y organizar un congreso.',
+    orgLabel: 'Organizaciones',
+    orgIntro:
+      'Tres cargos sin nómina, en dos organizaciones estudiantiles y un congreso. De dos de ellos salieron herramientas que siguen en uso.',
+    workLabel: 'Experiencia laboral',
+    workIntro: 'Trabajo con nómina, medio tiempo, en un laboratorio.',
+    partLabel: 'Participaciones',
+    partIntro:
+      'Hackatones, talleres, paneles y congresos, como participante, organizador o expositor.',
+    certLabel: 'Certificaciones',
+    certIntro:
+      'Horas y constancias de lo que hice fuera del aula, con la entidad que las emitió.',
+    navPart: 'Participaciones',
     aboutLabel: 'Sobre mí',
     shotCaption: 'captura real',
     noShot: 'sin captura',
@@ -118,7 +139,7 @@ export const copy: Record<Locale, Copy> = {
     gridFree: 'Free',
     gridNote:
       'When twenty people cross their timetables, someone has to point at the slot that actually works. That was the first thing I programmed.',
-    projectsLabel: 'Projects · 04',
+    projectsLabel: 'Projects',
     projectsIntro:
       'Four applications that are actually in use, not class exercises. Two of them are live right now.',
     demo: 'Open the app',
@@ -127,6 +148,18 @@ export const copy: Record<Locale, Copy> = {
     experienceLabel: 'Experience · 04',
     experienceIntro:
       'Two of these tools I built for the organizations where I hold a position. And two of the entries below are not jobs: running a student group and organizing a congress.',
+    orgLabel: 'Organizations',
+    orgIntro:
+      'Three unpaid positions, across two student organizations and one congress. Two of them produced tools that are still in use.',
+    workLabel: 'Employment',
+    workIntro: 'A paid job, part time, in a lab.',
+    partLabel: 'Participations',
+    partIntro:
+      'Hackathons, workshops, panels and congresses, as a participant, an organizer or a speaker.',
+    certLabel: 'Certifications',
+    certIntro:
+      'Hours and certificates for the work I did outside the classroom, with whoever issued them.',
+    navPart: 'Participations',
     aboutLabel: 'About',
     shotCaption: 'real screenshot',
     noShot: 'no screenshot',

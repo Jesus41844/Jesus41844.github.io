@@ -8,9 +8,13 @@ interface Props {
   body: string;
   /** Parrafo que describe lo que construiste para el cargo. */
   detail?: string;
+  image?: string;
+  imageCaption?: string;
+  imageFit?: 'cover' | 'contain';
 }
 
-const { role, org, period, kind, place, body, detail } = Astro.props;
+const { role, org, period, kind, place, body, detail, image, imageCaption, imageFit } =
+  Astro.props;
 
 const meta = [kind, place].filter(Boolean).join(' · ');
 ---
@@ -22,6 +26,18 @@ const meta = [kind, place].filter(Boolean).join(' · ');
   </div>
 
   <div class="role-what">
+    {image && (
+      <figure class="role-shot">
+        <img
+          src={image}
+          alt={`${org}: ${role}`}
+          loading="lazy"
+          decoding="async"
+          style={imageFit ? `object-fit:${imageFit}` : undefined}
+        />
+        {imageCaption && <figcaption>{imageCaption}</figcaption>}
+      </figure>
+    )}
     <h3 class="role-title">{role}</h3>
     <p class="role-org">{org}</p>
     <p class="role-body">{body}</p>

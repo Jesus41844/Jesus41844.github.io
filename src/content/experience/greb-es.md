@@ -1,6 +1,7 @@
 ---
 id: greb
 locale: es
+track: organizaciones
 order: 1
 role: Presidente
 org: Grupo de Robótica Evolutiva Bioinspirada (GREB)

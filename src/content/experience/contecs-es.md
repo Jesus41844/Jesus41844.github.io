@@ -1,11 +1,14 @@
 ---
 id: contecs
 locale: es
+track: organizaciones
 order: 3
 role: Coordinador de Actividades
 org: CONTECS
 period: 2025 – 2026
 kind: Congreso estudiantil · dos ediciones
+image: /experiencias/contecs.jpg
+imageCaption: el banner del congreso, montando el stand
 body: >-
   CONTECS es el Congreso de Tecnologías en Ciencias Computacionales, que
   organiza la Facultad de Ingeniería en Sistemas Computacionales de la UTP por

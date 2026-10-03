@@ -1,0 +1,34 @@
+---
+interface Props {
+  name: string;
+  issuer: string;
+  date: string;
+  hours?: string;
+  kind?: string;
+  credential?: string;
+}
+
+const { name, issuer, date, hours, kind, credential } = Astro.props;
+
+// Un certificado es un dato, no una historia. Por eso va en fila densa y no
+// como tarjeta: una tarjeta con parrafo para "20 horas" le pondria un cuerpo a
+// algo que solo tiene datos.
+//
+// `meta` lleva solo la entidad: la fecha ya esta en la columna izquierda y las
+// horas tienen su propio enfasis ahi. Repetirlas era la misma falta que se
+// corrigio en el parrafo del About.
+const meta = issuer;
+---
+
+<div class="cert">
+  <div class="cert-when">
+    <p class="cert-date">{date}</p>
+    {hours && <p class="cert-hours">{hours}</p>}
+  </div>
+  <div class="cert-what">
+    <p class="cert-name">{name}</p>
+    <p class="cert-meta">{meta}</p>
+    {credential && <p class="cert-cred">{credential}</p>}
+  </div>
+  {kind && <p class="cert-kind">{kind}</p>}
+</div>

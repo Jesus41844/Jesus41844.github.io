@@ -1,6 +1,7 @@
 ---
 id: eurus
 locale: es
+track: organizaciones
 order: 2
 role: Vicepresidente
 org: Agrupación Estudiantil EURUS

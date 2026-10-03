@@ -1,6 +1,7 @@
 ---
 id: utp
 locale: en
+track: laboral
 order: 3
 role: Lab Operator
 org: Universidad Tecnológica de Panamá

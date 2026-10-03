@@ -4,6 +4,7 @@ import Base from '../../layouts/Base.astro';
 import Hero from '../../components/Hero.astro';
 import ProjectCard from '../../components/ProjectCard.astro';
 import RoleItem from '../../components/RoleItem.astro';
+import CertificateItem from '../../components/CertificateItem.astro';
 import About from '../../components/About.astro';
 import { copy, links, type Locale } from '../../lib/i18n';
 import { projectColor, type ColorName } from '../../lib/palette';
@@ -15,9 +16,25 @@ const projects = (await getCollection('projects', ({ data }) => data.locale === 
   .sort((a, b) => a.data.order - b.data.order)
   .map((p) => p.data);
 
-const roles = (await getCollection('experience', ({ data }) => data.locale === locale))
+const rolesRaw = (await getCollection('experience', ({ data }) => data.locale === locale))
+  .map((r) => ({ ...r.data, detail: r.body?.trim() }))
+  .sort((a, b) => a.order - b.order);
+
+const participaciones = (
+  await getCollection('participaciones', ({ data }) => data.locale === locale)
+)
   .sort((a, b) => a.data.order - b.data.order)
-  .map((r) => ({ ...r.data, detail: r.body?.trim() }));
+  .map((p) => p.data);
+
+const certificaciones = (
+  await getCollection('certificaciones', ({ data }) => data.locale === locale)
+)
+  .sort((a, b) => a.data.order - b.data.order)
+  .map((c) => c.data);
+
+/** Los conteos se calculan. Escribirlos a mano en i18n es un bug esperando:
+ *  anadir una participacion y olvidar el numero no da error, solo miente. */
+const n = (x: number) => ` · ${String(x).padStart(2, '0')}`;
 
 const about = (await getCollection('about', ({ data }) => data.locale === locale)).map(
   (a) => a.data,
@@ -36,7 +53,7 @@ const description =
   <Hero locale={locale} names={names} />
 
   <section id="projects" class="band">
-    <h2 class="band-label">{t.projectsLabel}</h2>
+    <h2 class="band-label">{t.projectsLabel}{n(projects.length)}</h2>
     <p class="band-intro">{t.projectsIntro}</p>
     {
       projects.map((p) => (
@@ -65,11 +82,66 @@ const description =
     }
   </section>
 
+  {/* La banda de experiencia se parte en dos. Los cargos no son todos lo mismo:
+      tres son de agrupación o congreso y uno es un empleo con nómina. El id se
+      queda en la primera porque el nav apunta ahí; la segunda cuelga debajo. */}
   <section id="experience" class="band">
-    <h2 class="band-label">{t.experienceLabel}</h2>
-    <p class="band-intro">{t.experienceIntro}</p>
-    {roles.map((r) => <RoleItem {...r} />)}
+    <h2 class="band-label">{t.orgLabel}{n(rolesRaw.filter((r) => r.track === 'organizaciones').length)}</h2>
+    <p class="band-intro">{t.orgIntro}</p>
+    {rolesRaw.filter((r) => r.track === 'organizaciones').map((r) => <RoleItem {...r} />)}
   </section>
+
+  <section id="work" class="band">
+    <h2 class="band-label">{t.workLabel}{n(rolesRaw.filter((r) => r.track === 'laboral').length)}</h2>
+    <p class="band-intro">{t.workIntro}</p>
+    {rolesRaw.filter((r) => r.track === 'laboral').map((r) => <RoleItem {...r} />)}
+  </section>
+
+  {participaciones.length > 0 && (
+    <section id="participaciones" class="band">
+      <h2 class="band-label">{t.partLabel}{n(participaciones.length)}</h2>
+      <p class="band-intro">{t.partIntro}</p>
+      <div class="role-list">
+        {participaciones.map((p) => (
+          <article class="part">
+            {p.image && (
+              <figure class="part-shot">
+                <img
+                  src={p.image}
+                  alt={`${p.org}: ${p.role}`}
+                  loading="lazy"
+                  decoding="async"
+                  style={p.imageFit ? `object-fit:${p.imageFit}` : undefined}
+                />
+                {p.imageCaption && <figcaption>{p.imageCaption}</figcaption>}
+              </figure>
+            )}
+            <div class="part-when">
+              <p class="part-period">{p.period}</p>
+              {p.kind && <p class="part-kind">{p.kind}</p>}
+            </div>
+            <div class="part-what">
+              <h3 class="part-role">{p.role}</h3>
+              <p class="part-org">{p.org}</p>
+              <p class="part-body">{p.body}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+  )}
+
+  {certificaciones.length > 0 && (
+    <section id="certificaciones" class="band">
+      <h2 class="band-label">{t.certLabel}{n(certificaciones.length)}</h2>
+      <p class="band-intro">{t.certIntro}</p>
+      <div class="role-list">
+        {certificaciones.map((c) => (
+          <CertificateItem name={c.name} issuer={c.issuer} date={c.date} hours={c.hours} kind={c.kind} credential={c.credential} />
+        ))}
+      </div>
+    </section>
+  )}
 
   {about && <About locale={locale} lead={about.lead} body={about.body} />}
 

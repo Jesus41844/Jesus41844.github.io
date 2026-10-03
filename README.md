@@ -11,8 +11,10 @@ src/
 ├── content/            # Contenido en markdown, separado por idioma
 │   ├── projects/es/    # Un archivo por proyecto, en español
 │   ├── projects/en/
-│   ├── experience/     # Un archivo por entrada de experiencia
-│   └── about/          # La seccion "Sobre mi", una hoja por idioma
+│   ├── experience/     # Un cargo; `track` decide en que banda va
+│   ├── about/          # La seccion "Sobre mi", una hoja por idioma
+│   ├── participaciones/# Un evento con fecha, misma forma que experience
+│   └── certificaciones/# Una constancia: entidad, fecha y horas
 ├── components/         # Hero, WeekGrid, ProjectCard, RoleItem, About
 ├── layouts/Base.astro  # Metadatos, OpenGraph, hreflang alternos, el script
 ├── lib/i18n.ts         # Textos de interfaz por idioma
@@ -87,6 +89,34 @@ página. **El marco uniforme vale más que la nitidez de dos de ellas**, pero si
 alguna se ve blanda el arreglo no es volver a `contain` (eso devuelve las cajas
 desiguales): es recapturar a mayor resolución, y en el caso de `DaytubaGastos`
 con una ventana más ancha que alta, que es el formato que tiene la app.
+
+## Organizaciones, trabajo, participaciones y certificaciones
+
+Cuatro bandas que parecen cuatro y son dos cosas distintas. Los cargos van
+divididos por `track`, porque tres son agrupación o congreso y uno es un empleo
+con nómina: ponerlos juntos hacía que "Presidente · Jornada completa" se leyera
+como un trabajo.
+
+`participaciones` tiene **la misma forma que `experience`** a propósito, para
+reusar `RoleItem.astro`. Lo que cambia es el destino: un cargo se sostiene en el
+tiempo, una participación es un evento con fecha.
+
+`certificaciones` tiene forma propia, con `hours` y sin `body`, porque un
+certificado es un dato y no una historia. Se renderiza como fila densa tipo spec,
+no como tarjeta: una tarjeta con párrafo para "20 horas" le pondría un cuerpo a
+algo que solo tiene datos.
+
+**Los conteos de los labels se calculan desde el array.** Estaban escritos a
+mano en `i18n.ts` (`'Proyectos · 04'`) y con siete bandas, añadir una
+participación y olvidar el número no daba error: solo mentía.
+
+Las fotos de evento van acotadas a `32rem` y en 16:9, no a ancho de columna como
+las de los proyectos. Las de proyecto son el trabajo; las de evento son
+evidencia, y a ancho completo ocho participaciones son una columna interminable
+de scroll.
+
+Certificaciones **no entra al nav** por decisión de Jesús: el nav queda en seis
+entradas, que es lo que cabía sin partirse en móvil.
 
 ## La tipografía y el color
 

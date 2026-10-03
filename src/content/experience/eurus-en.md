@@ -1,6 +1,7 @@
 ---
 id: eurus
 locale: en
+track: organizaciones
 order: 2
 role: Vice President
 org: EURUS Student Organization

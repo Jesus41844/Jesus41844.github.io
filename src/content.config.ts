@@ -60,7 +60,59 @@ const experience = defineCollection({
     body: z.string(),
     /** Slug del proyecto de la colección `projects` que menciona este cargo. */
     projectId: z.string().optional(),
+    /** Que banda de la pagina va este cargo. Los cargos no son todos lo
+     *  mismo: tres son de agrupación o congreso y uno es un empleo. */
+    track: z.enum(['organizaciones', 'laboral']),
+    image: z.string().optional(),
+    imageCaption: z.string().optional(),
+    imageFit: z.enum(['cover', 'contain']).optional(),
   }),
 });
 
-export const collections = { projects, experience, about };
+/**
+ * Misma forma que `experience`, a proposito: asi las participaciones se
+ * renderizan con `RoleItem.astro` sin tocar el componente. Lo que cambia es el
+ * destino —un cargo se sostiene en el tiempo, una participacion es un evento
+ * con fecha— y por eso va en su propia coleccion y no como un `track` mas.
+ */
+const participaciones = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/participaciones' }),
+  schema: z.object({
+    id: z.string(),
+    locale: z.enum(['es', 'en']),
+    order: z.number(),
+    /** Como te presentaste: Participante, Organizador, Tallerista, Panelista. */
+    role: z.string(),
+    /** Nombre del evento. Aqui `org` es el evento, no una organización. */
+    org: z.string(),
+    /** Fecha, no rango: un evento pasa. */
+    period: z.string(),
+    kind: z.string().optional(),
+    place: z.string().optional(),
+    body: z.string(),
+    image: z.string().optional(),
+    imageCaption: z.string().optional(),
+    imageFit: z.enum(['cover', 'contain']).optional(),
+  }),
+});
+
+/**
+ * Un certificado es un dato, no un cargo: por eso tiene su propia forma, con
+ * `hours` y sin `body`. Se renderiza como lista compacta, no como tarjeta.
+ */
+const certificaciones = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/certificaciones' }),
+  schema: z.object({
+    id: z.string(),
+    locale: z.enum(['es', 'en']),
+    order: z.number(),
+    name: z.string(),
+    issuer: z.string(),
+    date: z.string(),
+    hours: z.string().optional(),
+    kind: z.string().optional(),
+    credential: z.string().optional(),
+  }),
+});
+
+export const collections = { projects, experience, about, participaciones, certificaciones };

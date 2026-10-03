@@ -1,6 +1,7 @@
 ---
 id: utp
 locale: es
+track: laboral
 order: 3
 role: Operador
 org: Universidad Tecnológica de Panamá
