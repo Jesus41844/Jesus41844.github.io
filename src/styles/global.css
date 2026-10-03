@@ -693,6 +693,11 @@ a {
   }
 }
 
+/* Celda de ancho fijo en movil. Va aqui, al final, y no en la regla base: el
+   ancho en linea del marcado tiene prioridad sobre la regla base, y solo esta
+   media query, al venir despues, lo ajusta. Sin esto las celdas salian de dos
+   medidas distintas en un movil —una entrada de dos a 134px y una de tres a
+   86px— porque cada celda se repartia el sobrante. */
 /* La captura se trata como una figura de plano: marco de linea fina, fondo de
    panel para la letterbox, y el pie en mono. Sin sombra y sin esquinas
    redondeadas, porque el resto de la pagina es plano a proposito y una sombra
@@ -1269,19 +1274,19 @@ linea rompen el aire tecnico de la pagina. */
 .part-strip {
   grid-column: 1 / -1;
   display: grid;
-  /* Celda fija, del tamaño que tienen las del Hackathon COPA, para que todas
-     las galerias se vean igual sin importar cuantas fotos tenga cada una.
-     Con celdas de 1fr, una entrada de cuatro sacaba celdas de 260px y una de
-     dos sacaba de 530px: cada galeria con su medida.
+  /* El numero de celdas lo dice `--n` en el marcado y lo lee esta regla.
 
-     `justify-content: center` porque con celdas fijas una entrada de dos fotos
-     deja hueco a la derecha y se lee como rota, que es justo lo que se
-     corrigio antes. El grupo centrado no deja ese hueco.
+     Se descarta `auto-fit` a proposito: el navegador calculaba cuantas celdas
+     de 348px caben y creaba una de mas cuando sobra sitio, y esa celda vacia
+     se quedaba con sus 348px dejando el aire de un lado. Peor aun, con un pie
+     de galeria presente el colapso de la celda vacia no ocurria, y la entrada
+     quedaba descentrada. Depender de que `auto-fit` colapse bien es depender
+     de un detalle del algoritmo; pasar el numero es determinista.
 
-     `minmax(0, 21.75rem)` y no un ancho fijo: con 348px fijos la celda no
-     cabia en un movil de 320 y desbordaba 14px. El min permite que en angosto
-     la celda encoja, y el max la mantiene en 348 cuando hay sitio. */
-  grid-template-columns: repeat(auto-fit, minmax(0, 21.75rem));
+     El ancho sale de los 348px de las celdas del Hackathon COPA, que es la
+     medida que se pidio. El `minmax(0, ...)` deja que en angosto la celda
+     encoja: con un ancho fijo desbordaba 14px en un movil de 320. */
+  grid-template-columns: repeat(var(--n, 3), minmax(0, 21.75rem));
   justify-content: center;
   gap: 0.7rem;
   margin: 0.7rem 0 0.2rem;
@@ -1322,4 +1327,21 @@ linea rompen el aire tecnico de la pagina. */
   line-height: 1.3;
   color: var(--ink-faint);
   text-align: center;
+}
+
+
+/* Celda de la galeria en movil. Va DESPUES de la regla base de `.part-strip`, no
+   antes: las dos tienen la misma especificidad, asi que gana la que aparece
+   despues en la hoja. Puesta antes, la regla base la pisaba y la celda seguia
+   saliendo de 348px repartiendo el sobrante —una galeria de dos a 164px y una
+   de tres a 106px— en vez de medir las dos lo mismo.
+
+   5.3rem son 85px, que es lo que cabe en tres dentro de un contenedor de 280px.
+
+   Sin `!important`: las columnas las arma el CSS y no el marcado, que solo
+   pasa `--n`. Con las columnas en linea, ningun media query podia ajustarlas. */
+@media (max-width: 52rem) {
+  .part-strip {
+    grid-template-columns: repeat(var(--n, 3), minmax(0, 5.3rem));
+  }
 }

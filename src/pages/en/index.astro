@@ -121,7 +121,7 @@ const description =
                   {p.images[0].caption && <figcaption>{p.images[0].caption}</figcaption>}
                 </figure>
               ) : (
-                <div class="part-strip">
+                <div class="part-strip" style={`--n:${p.images.length}`}>
                   {p.images.map((im) => (
                     <figure class="part-thumb">
                       <img

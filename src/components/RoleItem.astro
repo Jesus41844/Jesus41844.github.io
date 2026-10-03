@@ -29,7 +29,7 @@ const meta = [kind, place].filter(Boolean).join(' · ');
       /* Misma regla que en las participaciones: una foto grande, varias en
          rejilla de celdas iguales. Nunca una grande con el resto en miniatura. */
       varias ? (
-        <div class="part-strip">
+        <div class="part-strip" style={`--n:${images.length}`}>
           {images?.map((im) => (
             <figure class="part-thumb">
               <img
