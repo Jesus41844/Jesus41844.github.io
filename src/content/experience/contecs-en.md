@@ -6,9 +6,12 @@ order: 3
 role: Activities Coordinator
 org: CONTECS
 period: 2025 – 2026
+images:
+  - src: /experiencias/contecs-1.jpg
+    caption: the congress banner, setting up the stand
+  - src: /experiencias/contecs-2.jpg
+    caption: at the booth, wearing the congress shirt
 kind: Student congress · two editions
-image: /experiencias/contecs.jpg
-imageCaption: the congress banner, setting up the stand
 body: >-
   CONTECS is the Congress of Computing Science Technologies, run by UTP's
   Faculty of Computer Systems Engineering, by students for students. I was on

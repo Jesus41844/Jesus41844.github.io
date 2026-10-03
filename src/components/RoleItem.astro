@@ -8,13 +8,12 @@ interface Props {
   body: string;
   /** Parrafo que describe lo que construiste para el cargo. */
   detail?: string;
-  image?: string;
-  imageCaption?: string;
-  imageFit?: 'cover' | 'contain';
+  images?: { src: string; caption?: string; fit?: 'cover' | 'contain' }[];
 }
 
-const { role, org, period, kind, place, body, detail, image, imageCaption, imageFit } =
-  Astro.props;
+const { role, org, period, kind, place, body, detail, images } = Astro.props;
+const cover = images?.[0];
+const rest = images?.slice(1) ?? [];
 
 const meta = [kind, place].filter(Boolean).join(' · ');
 ---
@@ -26,17 +25,35 @@ const meta = [kind, place].filter(Boolean).join(' · ');
   </div>
 
   <div class="role-what">
-    {image && (
-      <figure class="role-shot">
-        <img
-          src={image}
-          alt={`${org}: ${role}`}
-          loading="lazy"
-          decoding="async"
-          style={imageFit ? `object-fit:${imageFit}` : undefined}
-        />
-        {imageCaption && <figcaption>{imageCaption}</figcaption>}
-      </figure>
+    {cover && (
+      <>
+        <figure class="role-shot">
+          <img
+            src={cover.src}
+            alt={`${org}: ${role}`}
+            loading="lazy"
+            decoding="async"
+            style={cover.fit ? `object-fit:${cover.fit}` : undefined}
+          />
+          {cover.caption && <figcaption>{cover.caption}</figcaption>}
+        </figure>
+        {rest.length > 0 && (
+          <div class="part-strip">
+            {rest.map((im) => (
+              <figure class="part-thumb">
+                <img
+                  src={im.src}
+                  alt={`${org}: ${im.caption ?? role}`}
+                  loading="lazy"
+                  decoding="async"
+                  style={im.fit ? `object-fit:${im.fit}` : undefined}
+                />
+                {im.caption && <figcaption>{im.caption}</figcaption>}
+              </figure>
+            ))}
+          </div>
+        )}
+      </>
     )}
     <h3 class="role-title">{role}</h3>
     <p class="role-org">{org}</p>

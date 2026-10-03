@@ -5,10 +5,11 @@ order: 5
 role: Expositor
 org: EXPO INVESTIGACIÓN 2025
 period: oct. 2025
+images:
+  - src: /experiencias/expo-1.jpg
+    caption: el póster, con su autor
+    fit: contain
 kind: Póster
-image: /experiencias/expo.jpg
-imageCaption: el póster, con su autor
-imageFit: contain
 body: >-
   Presenté en modalidad póster un sistema distribuido para la gestión y
   orquestación de impresión 3D en masa, junto a un compañero. El trabajo sigue

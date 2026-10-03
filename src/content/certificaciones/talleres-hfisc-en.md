@@ -1,7 +1,7 @@
 ---
 id: talleres-hfisc
 locale: en
-order: 2
+order: 3
 name: Hackathon-FISC workshops — organizing
 issuer: FISC · EURUS · CONTECS
 date: Sep 2026

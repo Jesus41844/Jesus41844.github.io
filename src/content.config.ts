@@ -46,6 +46,19 @@ const about = defineCollection({
   }),
 });
 
+/** Una foto o varias. El caption va con la foto, no con la entrada: una
+ *  entrada con tres fotos tiene tres pies distintos. */
+const imagenes = z
+  .array(
+    z.object({
+      src: z.string(),
+      caption: z.string().optional(),
+      /** `contain` cuando recortar dejaria fuera lo que la foto prueba. */
+      fit: z.enum(['cover', 'contain']).optional(),
+    }),
+  )
+  .optional();
+
 const experience = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/experience' }),
   schema: z.object({
@@ -63,9 +76,7 @@ const experience = defineCollection({
     /** Que banda de la pagina va este cargo. Los cargos no son todos lo
      *  mismo: tres son de agrupación o congreso y uno es un empleo. */
     track: z.enum(['organizaciones', 'laboral']),
-    image: z.string().optional(),
-    imageCaption: z.string().optional(),
-    imageFit: z.enum(['cover', 'contain']).optional(),
+    images: imagenes,
   }),
 });
 
@@ -90,9 +101,7 @@ const participaciones = defineCollection({
     kind: z.string().optional(),
     place: z.string().optional(),
     body: z.string(),
-    image: z.string().optional(),
-    imageCaption: z.string().optional(),
-    imageFit: z.enum(['cover', 'contain']).optional(),
+    images: imagenes,
   }),
 });
 

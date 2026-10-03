@@ -1,7 +1,7 @@
 ---
 id: paneles-hfisc
 locale: es
-order: 3
+order: 4
 name: Paneles Aperitivos CONTECS — exposición
 issuer: FISC · EURUS · CONTECS
 date: sep. 2026
