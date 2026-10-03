@@ -9,9 +9,9 @@ images:
   - src: /experiencias/eurusconf-1.jpg
     caption: el equipo de la agrupación sobre el escenario
   - src: /experiencias/eurusconf-2.jpg
-    caption: en la vocación del congreso
+    caption: en el atril del congreso
   - src: /experiencias/eurusconf-3.jpg
-    caption: en la vocación del congreso
+    caption: con el micrófono, exponiendo
 kind: Congreso estudiantil
 body: >-
   Como vicepresidente de la agrupación organizadora me tocó apoyar la logística
