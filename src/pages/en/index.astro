@@ -105,10 +105,11 @@ const description =
         {participaciones.map((p) => (
           <article class="part">
             {p.images && p.images.length > 0 && (
-              <>
-                {/* La primera foto va grande: es la que explica. Las demas en
-                    tira, porque son evidencia de que estuvo, no la prueba de
-                    que lo hizo. */}
+              /* Una foto sola se muestra grande; varias van en una rejilla de
+                 celdas iguales. Lo que no vuelve es una foto grande con el
+                 resto en miniatura: ese salto de tamaño era lo que se veía
+                 raro, no el hecho de que hubiera varias. */
+              p.images.length === 1 ? (
                 <figure class="part-shot">
                   <img
                     src={p.images[0].src}
@@ -119,23 +120,22 @@ const description =
                   />
                   {p.images[0].caption && <figcaption>{p.images[0].caption}</figcaption>}
                 </figure>
-                {p.images.length > 1 && (
-                  <div class="part-strip">
-                    {p.images.slice(1).map((im) => (
-                      <figure class="part-thumb">
-                        <img
-                          src={im.src}
-                          alt={`${p.org}: ${im.caption ?? p.role}`}
-                          loading="lazy"
-                          decoding="async"
-                          style={im.fit ? `object-fit:${im.fit}` : undefined}
-                        />
-                        {im.caption && <figcaption>{im.caption}</figcaption>}
-                      </figure>
-                    ))}
-                  </div>
-                )}
-              </>
+              ) : (
+                <div class="part-strip">
+                  {p.images.map((im) => (
+                    <figure class="part-thumb">
+                      <img
+                        src={im.src}
+                        alt={`${p.org}: ${im.caption ?? p.role}`}
+                        loading="lazy"
+                        decoding="async"
+                        style={im.fit ? `object-fit:${im.fit}` : undefined}
+                      />
+                      {im.caption && <figcaption>{im.caption}</figcaption>}
+                    </figure>
+                  ))}
+                </div>
+              )
             )}
             <div class="part-when">
               <p class="part-period">{p.period}</p>

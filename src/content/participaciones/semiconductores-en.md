@@ -17,6 +17,6 @@ images:
 kind: Hackathon
 body: >-
   I built an entry-access system on the microcontroller from the homogeneous
-  development kit we were given. The UTP certificate records it as **outstanding
-  participation**: it ran 24 hours straight, on a challenge set by Seguros S.A.
+  development kit we were given. The UTP certificate records it as "outstanding
+  participation": it ran 24 hours straight, on a challenge set by Seguros S.A.
 ---

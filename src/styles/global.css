@@ -1231,27 +1231,35 @@ linea rompen el aire tecnico de la pagina. */
   color: var(--ink-faint);
 }
 
-/* Las fotos secundarias de una participacion van en tira. No compiten con la
-   primera, que es la que explica; solo dejan ver que el evento existió y que
-   hubo más de una persona. */
+/* Las fotos de una participacion van en una rejilla de celdas iguales que
+   ocupa todo el ancho disponible.
+
+   Antes era una tira con `flex: 1 1 8rem` y celdas de 4:3, y eso daba tres
+   problemas a la vez: las miniaturas quedaban chicas, se alineaban a la
+   izquierda dejando la derecha vacía, y como cada celda se repartía el espacio
+   sobrante las de una misma entrada acababan de tamaños distintos.
+
+   Cuadradas en vez de 4:3 porque las fuentes son de orientación dispar: una
+   vertical de 541x1200 en un marco 4:3 deja ver el 34% del alto —la placa con
+   la que trabajamos salía como un fragmento amarillo— y en un cuadrado se ve
+   casi la mitad. `object-position: top` para que, cuando algo se recorta, sea
+   por la parte de abajo y no por el centro. */
 .part-strip {
   grid-column: 1 / -1;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-  margin: 0.75rem 0 0.2rem;
-  max-width: 32rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  gap: 0.7rem;
+  margin: 0.7rem 0 0.2rem;
 }
 
 .part-thumb {
   margin: 0;
-  flex: 1 1 8rem;
   min-width: 0;
 }
 
 .part-thumb img {
   width: 100%;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 1 / 1;
   object-fit: cover;
   object-position: left top;
   border: 1px solid var(--rule);

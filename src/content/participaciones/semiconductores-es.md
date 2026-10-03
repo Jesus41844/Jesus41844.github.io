@@ -18,6 +18,6 @@ kind: Hackatón
 body: >-
   Desarrollé un sistema de entrada a lugares con el microcontrolador del kit
   homogéneo de desarrollo que nos entregaron. El certificado de la UTP lo
-  acredita como **destacada participación**: fueron 24 horas continuas, con el
+  acredita como «destacada participación»: fueron 24 horas continuas, con el
   reto planteado por Seguros S.A.
 ---
