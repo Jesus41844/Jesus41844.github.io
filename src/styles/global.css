@@ -23,6 +23,10 @@
   --crimson: #a6374a;
   --moss: #35704f;
 
+  /* Curva propia para lo que el usuario pulsa. Las de CSS por defecto se
+     sienten debiles: el ease-out arranca rapido, que es justo lo que se ve. */
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+
   --maxw: 72rem;
   --measure: 44rem;
 
@@ -173,9 +177,11 @@ a {
   border-bottom: 1px solid transparent;
 }
 
-.nav a:hover {
-  color: var(--ink);
-  border-bottom-color: var(--ink);
+@media (hover: hover) and (pointer: fine) {
+  .nav a:hover {
+    color: var(--ink);
+    border-bottom-color: var(--ink);
+  }
 }
 
 .nav-lang {
@@ -257,9 +263,14 @@ a {
   border-bottom: 1px solid var(--rule);
 }
 
-.cta:hover,
 .cta:focus-visible {
   border-bottom-color: var(--ink);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .cta:hover {
+    border-bottom-color: var(--ink);
+  }
 }
 
 /* ---------- la rejilla: el elemento que define el sitio ---------- */
@@ -508,13 +519,38 @@ a {
   align-self: start;
   position: relative;
   padding-left: 0.85rem;
-  border-left: 3px solid var(--proj-color);
-  transition: border-left-width 0.18s ease;
+  /* Anchos de la barra, sin px para poder dividirlos en la escala. */
+  --bar-rest: 3;
+  --bar-live: 7;
 }
 
-.project:hover .project-head,
-.project:focus-within .project-head {
-  border-left-width: 7px;
+/* La barra es un pseudo y se anima con scaleX, no con `border-left-width`.
+   Animar un width dispara layout, y esto esta en las cuatro filas de proyecto:
+   cada hover recalculaba el arbol entero. Con transform solo se pinta.
+   El texto no se mueve en ninguno de los dos estados, porque el padding es
+   fijo: lo que crece es la barra, no el hueco. */
+.project-head::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: var(--proj-color);
+  transform-origin: left center;
+  transition: transform 0.18s ease;
+}
+
+.project:focus-within .project-head::before {
+  transform: scaleX(calc(var(--bar-live) / var(--bar-rest)));
+}
+
+/* El hover va tras un gate de puntero fino. En tactil, tocar dispara :hover y
+   Safari lo deja pegado: la barra se quedaba en 7px para siempre. */
+@media (hover: hover) and (pointer: fine) {
+  .project:hover .project-head::before {
+    transform: scaleX(calc(var(--bar-live) / var(--bar-rest)));
+  }
 }
 
 .project[data-project="azur"] {
@@ -625,8 +661,10 @@ a {
   transition: transform 0.18s ease;
 }
 
-.link-go:hover .arrow {
-  transform: translateX(0.22em);
+@media (hover: hover) and (pointer: fine) {
+  .link-go:hover .arrow {
+    transform: translateX(0.22em);
+  }
 }
 
 .link-off {
@@ -904,12 +942,16 @@ a {
 }
 
 .spec a {
+  /* inline-block para que `transform` aplique: un inline puro no se transforma. */
+  display: inline-block;
   text-decoration: none;
   border-bottom: 1px solid var(--rule);
 }
 
-.spec a:hover {
-  border-bottom-color: var(--ink);
+@media (hover: hover) and (pointer: fine) {
+  .spec a:hover {
+    border-bottom-color: var(--ink);
+  }
 }
 
 @media (max-width: 40rem) {
@@ -968,6 +1010,31 @@ footer {
     animation-delay: 0ms !important;
     transition-duration: 0.001ms !important;
   }
+}
+
+/* ---------- el pulso ----------
+
+En un telefono no hay hover: el puntero no existe hasta que tocas. Sin este
+bloque, tocar un enlace no daba ninguna señal de que hubiera pasado, y el
+menu se sintia muerto. `:active` es el unico feedback real en tactil, asi que
+tiene que existir aunque no se vea en escritorio.
+
+0.97 es suficiente para notarse y poco para que el texto se descentre. 160ms
+con curva ease-out propia: el dedo no deberia esperar a que la interfaz
+reaccione. Sin transicion, el cambio seria instantaneo y leeriamos como un
+parpadeo en vez de como una pulsacion. */
+.cta,
+.link-go,
+.nav a,
+.spec a {
+  transition: transform 0.16s var(--ease-out);
+}
+
+.cta:active,
+.link-go:active,
+.nav a:active,
+.spec a:active {
+  transform: scale(0.97);
 }
 
 /* ---------- prosa justificada ----------
