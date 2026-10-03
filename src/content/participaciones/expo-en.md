@@ -8,7 +8,6 @@ period: Oct 2025
 images:
   - src: /experiencias/expo-1.jpg
     caption: Next to the poster with my classmate
-    fit: contain
 kind: Poster
 body: >-
   I presented a poster on a distributed system for managing and orchestrating

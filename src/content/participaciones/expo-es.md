@@ -8,7 +8,6 @@ period: oct. 2025
 images:
   - src: /experiencias/expo-1.jpg
     caption: Junto al poster con mi compañero
-    fit: contain
 kind: Póster
 body: >-
   Presenté en modalidad póster un sistema distribuido para la gestión y

@@ -1232,21 +1232,25 @@ linea rompen el aire tecnico de la pagina. */
   font-size: 0.72rem;
   color: var(--ink-faint);
 }
-/* Este bloque va DESPUES de `.part-shot img` y `.role-shot img` a proposito:
-   misma especificidad, asi que gana el orden. Puesto antes, no hacia nada, que
-   es exactamente lo que me paso con `imageAspect` y con el primer intento de
-   esta regla. Que quede escrito para no volver a intentarlo arriba.
+/* Una foto vertical sola —el poster de la Expo— en el marco de 16:9 con
+   `contain` dejaba barras laterales enormes y el poster pequeno en el centro. Va
+   en un cuadro y con `cover`, que recorta por arriba y por abajo: en esa foto
+   lo que sobra era techo y piso. Y centrado en la pagina, no pegado a la
+   izquierda como las demas.
 
-   El ratio va en el `img` y no en la figura: la imagen trae su propio
-   `aspect-ratio`, que es mas especifico y gana. */
-.part-shot--contain,
-.role-shot--contain {
-  max-width: 38rem;
+   El ratio va en el `img` y no en la figura porque la imagen trae su propio
+   `aspect-ratio`, que es mas especifico y gana. Y este bloque va DESPUES de
+   `.part-shot img` por lo mismo: misma especificidad, gana el orden. Puesto
+   antes no hacia nada, que fue lo que paso dos veces. */
+.part-shot--tall,
+.role-shot--tall {
+  max-width: 34rem;
+  margin-inline: auto;
 }
 
-.part-shot--contain img,
-.role-shot--contain img {
-  aspect-ratio: 4 / 5;
+.part-shot--tall img,
+.role-shot--tall img {
+  aspect-ratio: 1 / 1;
 }
 
 
@@ -1292,4 +1296,17 @@ linea rompen el aire tecnico de la pagina. */
   font-size: 0.68rem;
   line-height: 1.3;
   color: var(--ink-faint);
+}
+
+/* Cuando todas las fotos de una entrada comparten un pie, va uno solo debajo
+   de la fila y centrado. Antes era un item mas de la rejilla y salia metido en
+   la primera columna, alineado a la izquierda con la foto de al lado. */
+.part-strip-cap {
+  grid-column: 1 / -1;
+  margin-top: 0.45rem;
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  line-height: 1.3;
+  color: var(--ink-faint);
+  text-align: center;
 }

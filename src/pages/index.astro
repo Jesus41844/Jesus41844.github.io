@@ -110,7 +110,7 @@ const description =
                  resto en miniatura: ese salto de tamaño era lo que se veía
                  raro, no el hecho de que hubiera varias. */
               p.images.length === 1 ? (
-                <figure class={`part-shot${p.images[0].fit === 'contain' ? ' part-shot--contain' : ''}`}>
+                <figure class="part-shot part-shot--tall">
                   <img
                     src={p.images[0].src}
                     alt={`${p.org}: ${p.role}`}
