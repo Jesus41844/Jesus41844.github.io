@@ -44,7 +44,7 @@ const meta = [kind, place].filter(Boolean).join(' · ');
           ))}
         </div>
       ) : (
-        <figure class="role-shot">
+        <figure class={`role-shot${cover.fit === 'contain' ? ' role-shot--contain' : ''}`}>
           <img
             src={cover.src}
             alt={`${org}: ${role}`}

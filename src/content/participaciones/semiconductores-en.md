@@ -7,13 +7,11 @@ org: Semiconductors in Industry 4.0 Hackathon
 period: Aug 2025
 images:
   - src: /experiencias/semiconductores-1.jpg
-    caption: the certificate for outstanding participation
+    caption: Certificate of outstanding participation
   - src: /experiencias/semiconductores-2.jpg
-    caption: the board we worked with
+    caption: The board we worked with
   - src: /experiencias/semiconductores-3.jpg
-    caption: the module we wired up
-  - src: /experiencias/semiconductores-4.jpg
-    caption: writing code
+    caption: Working with the board
 kind: Hackathon
 body: >-
   I built an entry-access system on the microcontroller from the homogeneous

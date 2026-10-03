@@ -7,9 +7,9 @@ org: Panama International Book Fair
 period: Aug 2025
 images:
   - src: /experiencias/feria-1.jpg
-    caption: the workshop, on stage
+    caption: With the other workshop instructors
   - src: /experiencias/feria-2.jpg
-    caption: the faculty's booth
+    caption: Asking the participants questions
 kind: Workshop
 body: >-
   I ran a bioinspired robotics workshop for middle and high school students, at

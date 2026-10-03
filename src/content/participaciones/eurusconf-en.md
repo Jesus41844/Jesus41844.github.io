@@ -7,11 +7,11 @@ org: EurusConf
 period: Jun 2026
 images:
   - src: /experiencias/eurusconf-1.jpg
-    caption: the organization's team on stage
+    caption: Handing out the event's sweaters to participants
   - src: /experiencias/eurusconf-2.jpg
-    caption: at the lectern
+    caption: Saying a few words at the end of the event
   - src: /experiencias/eurusconf-3.jpg
-    caption: with the microphone, speaking
+    caption: Asking the participants questions
 kind: Student congress
 body: >-
   As vice president of the organizing student organization, I was in charge of

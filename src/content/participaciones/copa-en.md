@@ -7,13 +7,15 @@ org: Hackathon COPA
 period: Oct 2025
 images:
   - src: /experiencias/copa-1.jpg
-    caption: the team behind the event sign
+    caption: At the end of the hackathon, with our advisor
   - src: /experiencias/copa-2.jpg
-    caption: the team, at the end
+    caption: With the team, the day before, getting things ready
   - src: /experiencias/copa-3.jpg
-    caption: the teams working
-kind: CTF
+    caption: Getting everything ready on hackathon day
+kind: Hackathon · Copa Airlines
 body: >-
-  The event was a CTF: you solved security challenges rather than building a
-  product. I took part with the team.
+  Copa Airlines Hackathon 2025, sixth edition: data analytics and artificial
+  intelligence, with 129 teams from across the region, one day of talks and one
+  of timed technical challenges. We worked with AWS SageMaker Canvas and
+  Databricks. I took part with the team.
 ---

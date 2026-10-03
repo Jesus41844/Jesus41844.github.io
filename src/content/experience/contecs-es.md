@@ -8,9 +8,9 @@ org: CONTECS
 period: 2025 – 2026
 images:
   - src: /experiencias/contecs-1.jpg
-    caption: el banner del congreso, montando el stand
+    caption: En los días del congreso junto a la Ing. Giankaris Moreno, asesora de finanzas del CONTECS
   - src: /experiencias/contecs-2.jpg
-    caption: en el stand, con la camiseta del congreso
+    caption: Junto a la actual Rectora de la UTP con la camisa del congreso
 kind: Congreso estudiantil · dos ediciones
 body: >-
   CONTECS es el Congreso de Tecnologías en Ciencias Computacionales, que

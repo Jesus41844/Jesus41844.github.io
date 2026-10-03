@@ -101,6 +101,8 @@ const participaciones = defineCollection({
     kind: z.string().optional(),
     place: z.string().optional(),
     body: z.string(),
+    /** Pie unico de la galeria, para cuando todas las fotos comparten uno. */
+    caption: z.string().optional(),
     images: imagenes,
   }),
 });

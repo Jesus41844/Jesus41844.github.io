@@ -8,9 +8,9 @@ org: CONTECS
 period: 2025 – 2026
 images:
   - src: /experiencias/contecs-1.jpg
-    caption: the congress banner, setting up the stand
+    caption: During the congress days, with Ing. Giankaris Moreno, finance advisor to CONTECS
   - src: /experiencias/contecs-2.jpg
-    caption: at the booth, wearing the congress shirt
+    caption: With the current UTP Rector, wearing the congress shirt
 kind: Student congress · two editions
 body: >-
   CONTECS is the Congress of Computing Science Technologies, run by UTP's

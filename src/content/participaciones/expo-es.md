@@ -7,7 +7,7 @@ org: EXPO INVESTIGACIÓN 2025
 period: oct. 2025
 images:
   - src: /experiencias/expo-1.jpg
-    caption: el póster, con su autor
+    caption: Junto al poster con mi compañero
     fit: contain
 kind: Póster
 body: >-
