@@ -5,6 +5,14 @@ order: 2
 role: Organizer
 org: Hackathon-FISC
 period: Sep 2025 · Oct 2026
+images:
+  - src: /experiencias/hackathon-fisc-1.jpg
+    fit: contain
+    caption: The organizing team of the 2nd Hackathon-FISC
+  - src: /experiencias/hackathon-fisc-2.jpg
+    caption: Certificates handed out at the close of the hackathon
+  - src: /experiencias/hackathon-fisc-3.jpg
+    caption: During the event
 kind: Hackathon · two editions
 body: >-
   At the first edition, on September 20 and 21, 2025, I was a member of EURUS,

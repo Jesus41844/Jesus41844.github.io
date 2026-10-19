@@ -5,6 +5,14 @@ order: 2
 role: Organizador
 org: Hackathon-FISC
 period: sep. 2025 · oct. 2026
+images:
+  - src: /experiencias/hackathon-fisc-1.jpg
+    fit: contain
+    caption: El equipo organizador del II Hackathon-FISC
+  - src: /experiencias/hackathon-fisc-2.jpg
+    caption: Entrega de certificados al cierre del hackathon
+  - src: /experiencias/hackathon-fisc-3.jpg
+    caption: Durante el evento
 kind: Hackatón · dos ediciones
 body: >-
   En la primera edición, el 20 y 21 de septiembre de 2025, era miembro de
