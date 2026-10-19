@@ -123,7 +123,7 @@ entradas, que es lo que cabía sin partirse en móvil.
 Tres IBM Plex: **Sans Condensed** para las titularidades (en mayúsculas, sin
 redondeos; el condensado es lo que hace que una tesis larga en español se
 sostenga), **Sans** para el cuerpo y **Mono** para todo lo que es una etiqueta
-o un dato. El fondo es papel de dibujo frío, no crema. Hay cuatro tintas, una
+o un dato. El fondo es papel de dibujo frío, no crema. Hay seis tintas, una
 por proyecto, y casi todo el color saturado vive en la rejilla; el texto
 siempre es tinta sobre suelo.
 

@@ -24,13 +24,13 @@ export const weekDays = {
 export const weekHours = ['08:00', '10:00', '12:00', '14:00', '16:00', '18:00'];
 
 export const week: WeekRow[] = [
-  { hour: '08:00', cells: ['azur', null, 'amber', null, 'crimson'] },
-  { hour: '10:00', cells: [null, 'amber', null, 'azur', null] },
+  { hour: '08:00', cells: ['azur', 'teal', 'amber', null, 'crimson'] },
+  { hour: '10:00', cells: ['plum', 'amber', null, 'azur', null] },
   { hour: '12:00', cells: ['crimson', null, null, 'moss', 'amber'] },
   { hour: '14:00', cells: [null, null, null, null, null], picked: true },
-  { hour: '16:00', cells: ['amber', null, 'crimson', null, 'azur'] },
-  { hour: '18:00', cells: [null, 'moss', null, 'crimson', null] },
+  { hour: '16:00', cells: ['amber', null, 'crimson', 'plum', 'azur'] },
+  { hour: '18:00', cells: [null, 'moss', 'teal', 'crimson', null] },
 ];
 
 /** Los proyectos en el orden en que aparecen, para la leyenda. */
-export const weekLegend: ColorName[] = ['azur', 'amber', 'crimson', 'moss'];
+export const weekLegend: ColorName[] = ['azur', 'amber', 'crimson', 'moss', 'plum', 'teal'];

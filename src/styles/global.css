@@ -22,6 +22,8 @@
   --amber: #9c610d;
   --crimson: #a6374a;
   --moss: #35704f;
+  --plum: #74468c;
+  --teal: #17716d;
 
   /* Curva propia para lo que el usuario pulsa. Las de CSS por defecto se
      sienten debiles: el ease-out arranca rapido, que es justo lo que se ve. */
@@ -49,6 +51,8 @@
     --amber: #d99a45;
     --crimson: #dd6f7c;
     --moss: #6cb392;
+    --plum: #c39bd6;
+    --teal: #55b6ae;
   }
 }
 
@@ -356,6 +360,12 @@ a {
 .blk--moss {
   --blk-color: var(--moss);
 }
+.blk--plum {
+  --blk-color: var(--plum);
+}
+.blk--teal {
+  --blk-color: var(--teal);
+}
 
 /* Al pasar por un proyecto abajo, sus bloques se levantan aqui arriba. */
 .blk.is-lit {
@@ -445,6 +455,12 @@ a {
 }
 .swatch--moss {
   background: var(--moss);
+}
+.swatch--plum {
+  background: var(--plum);
+}
+.swatch--teal {
+  background: var(--teal);
 }
 
 .week-caption {
@@ -564,6 +580,12 @@ a {
 }
 .project[data-project="moss"] {
   --proj-color: var(--moss);
+}
+.project[data-project="plum"] {
+  --proj-color: var(--plum);
+}
+.project[data-project="teal"] {
+  --proj-color: var(--teal);
 }
 
 .project-title {

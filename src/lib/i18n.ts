@@ -34,6 +34,7 @@ interface Copy {
   demo: string;
   code: string;
   noDemo: string;
+  privateCode: string;
   experienceLabel: string;
   experienceIntro: string;
   orgLabel: string;
@@ -70,7 +71,7 @@ export const copy: Record<Locale, Copy> = {
     navContact: 'Contacto',
     navLang: 'English',
     heroBadge: 'En busca de una pasantía',
-    heroEyebrow: 'Cuatro aplicaciones · una misma pregunta',
+    heroEyebrow: 'Seis aplicaciones · una misma pregunta',
     heroHeadline: 'Software para cuando la realidad no encaja en el papel.',
     heroSub:
       'Cada proyecto aquí nació de un supuesto que resultó falso: que la quincena dura quince días, que un hueco de cinco minutos es tiempo libre, que las tareas de la semana caben en un mensaje. Escribo software que modela la realidad en lugar del calendario ideal.',
@@ -84,10 +85,11 @@ export const copy: Record<Locale, Copy> = {
       'Cuando veinte personas cruzan sus horarios, alguien tiene que señalar la franja que sí funciona. Eso fue lo primero que programé.',
     projectsLabel: 'Proyectos',
     projectsIntro:
-      'Cuatro aplicaciones que están en uso, no ejercicios de clase. Dos se pueden abrir ahora mismo.',
+      'Seis aplicaciones que se usaron de verdad, no ejercicios de clase. Dos se pueden abrir ahora mismo.',
     demo: 'Abrir la app',
     code: 'Código',
     noDemo: 'Sin demo pública',
+    privateCode: 'Código privado',
     experienceLabel: 'Experiencia · 04',
     experienceIntro:
       'Dos de estas herramientas las construí para las organizaciones donde tengo cargo. Y dos de los cargos no son un trabajo: es dirigir una agrupación y organizar un congreso.',
@@ -127,7 +129,7 @@ export const copy: Record<Locale, Copy> = {
     navContact: 'Contact',
     navLang: 'Español',
     heroBadge: 'Looking for an internship',
-    heroEyebrow: 'Four applications · the same question',
+    heroEyebrow: 'Six applications · the same question',
     heroHeadline: 'Software for when reality does not fit on paper.',
     heroSub:
       'Every project here started from an assumption that turned out to be false: that a pay period lasts fifteen days, that a five-minute gap is free time, that the week’s tasks fit in one message. I write software that models reality instead of the ideal calendar.',
@@ -141,10 +143,11 @@ export const copy: Record<Locale, Copy> = {
       'When twenty people cross their timetables, someone has to point at the slot that actually works. That was the first thing I programmed.',
     projectsLabel: 'Projects',
     projectsIntro:
-      'Four applications that are actually in use, not class exercises. Two of them are live right now.',
+      'Six applications that were actually used, not class exercises. Two of them are live right now.',
     demo: 'Open the app',
     code: 'Code',
     noDemo: 'No public demo',
+    privateCode: 'Private code',
     experienceLabel: 'Experience · 04',
     experienceIntro:
       'Two of these tools I built for the organizations where I hold a position. And two of the entries below are not jobs: running a student group and organizing a congress.',

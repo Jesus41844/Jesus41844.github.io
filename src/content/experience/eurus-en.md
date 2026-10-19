@@ -17,6 +17,6 @@ CONTECS, in a separate fork. I was in charge of giving it the organization's
 design and of making sure it worked on the day of the event. That is where the
 details got tightened, and they are what the congress later ran on.
 
-The repository is named `Inscripcion_Eurus` because the system grew out of the
+The repository is named `Inscripcion_EurusConf` because the system grew out of the
 organization, but it was written on the assumption that another event would
 need it.

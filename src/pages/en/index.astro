@@ -46,7 +46,7 @@ const names = Object.fromEntries(
 ) as Record<ColorName, string>;
 
 const description =
-  'Portfolio of Jesús de Gracia, software developer in Panama, third-year Systems and Computer Engineering student. Four applications in real use, two with public demos. Looking for an internship in robotics, AI or ML, from February 2027.';
+  'Portfolio of Jesús de Gracia, software developer in Panama, third-year Systems and Computer Engineering student. Six applications used for real, two with public demos. Looking for an internship in robotics, AI or ML, from February 2027.';
 ---
 
 <Base locale={locale} title={`${t.name} — ${t.role}`} description={description}>
@@ -74,6 +74,7 @@ const description =
           demoLabel={t.demo}
           codeLabel={t.code}
           noDemoLabel={t.noDemo}
+          privateLabel={t.privateCode}
           shotCaption={t.shotCaption}
           noShot={t.noShot}
           stackLabel={t.stackLabel}

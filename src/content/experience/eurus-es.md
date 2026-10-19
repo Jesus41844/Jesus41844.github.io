@@ -17,6 +17,6 @@ construido para el CONTECS, en un fork aparte. Me tocó darle el diseño de la
 agrupación y asegurarme de que funcionara el día del evento. Ahí se afinaron
 los detalles que después sirvieron para el congreso.
 
-El repositorio se llama `Inscripcion_Eurus` porque nació del lado de la
+El repositorio se llama `Inscripcion_EurusConf` porque nació del lado de la
 agrupación, pero el sistema se escribió pensando en que otro evento lo
 necesitara.

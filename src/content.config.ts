@@ -12,7 +12,8 @@ const projects = defineCollection({
     problem: z.string(),
     highlights: z.array(z.string()),
     stack: z.array(z.string()),
-    repo: z.string(),
+    /** Ausente cuando el repositorio es privado. */
+    repo: z.string().optional(),
     demo: z.string().optional(),
     /** Que se puede hacer con este proyecto. Va en la columna izquierda,
         *  que es lo primero que se escanea en vertical. */

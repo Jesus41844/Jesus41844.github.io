@@ -7,7 +7,7 @@ interface Props {
   problem: string;
   highlights: string[];
   stack: string[];
-  repo: string;
+  repo?: string;
   demo?: string;
   footnote?: string;
   image?: string;
@@ -18,6 +18,7 @@ interface Props {
   demoLabel: string;
   codeLabel: string;
   noDemoLabel: string;
+  privateLabel: string;
   shotCaption: string;
   noShot: string;
   stackLabel: string;
@@ -40,6 +41,7 @@ const {
   demoLabel,
   codeLabel,
   noDemoLabel,
+  privateLabel,
   shotCaption,
   noShot,
   stackLabel,
@@ -102,9 +104,15 @@ const {
         <span class="link-off">{noDemoLabel}</span>
       )
     }
-    <a class="link-go" href={repo} target="_blank" rel="noopener noreferrer">
-      {codeLabel} <span class="arrow" aria-hidden="true">↗</span>
-    </a>
+    {
+      repo ? (
+        <a class="link-go" href={repo} target="_blank" rel="noopener noreferrer">
+          {codeLabel} <span class="arrow" aria-hidden="true">↗</span>
+        </a>
+      ) : (
+        <span class="link-off">{privateLabel}</span>
+      )
+    }
   </p>
 
   {footnote && <p class="project-footnote">{footnote}</p>}

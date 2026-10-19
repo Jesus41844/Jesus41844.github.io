@@ -46,7 +46,7 @@ const names = Object.fromEntries(
 ) as Record<ColorName, string>;
 
 const description =
-  'Portafolio de Jesús de Gracia, desarrollador de software en Panamá, tercer año de Ingeniería en Sistemas. Cuatro aplicaciones en uso, dos con demostración pública. Busco pasantía en robótica, IA o ML desde febrero de 2027.';
+  'Portafolio de Jesús de Gracia, desarrollador de software en Panamá, tercer año de Ingeniería en Sistemas. Seis aplicaciones usadas de verdad, dos con demostración pública. Busco pasantía en robótica, IA o ML desde febrero de 2027.';
 ---
 
 <Base locale={locale} title={`${t.name} — ${t.role}`} description={description}>
@@ -74,6 +74,7 @@ const description =
           demoLabel={t.demo}
           codeLabel={t.code}
           noDemoLabel={t.noDemo}
+          privateLabel={t.privateCode}
           shotCaption={t.shotCaption}
           noShot={t.noShot}
           stackLabel={t.stackLabel}
