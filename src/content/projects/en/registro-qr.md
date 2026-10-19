@@ -21,6 +21,8 @@ stack:
   - Firestore
   - html5-qrcode
   - jsPDF
+image: /projects/registro-qr.jpg
+imageCaption: three real screens, on a phone
 repo: https://github.com/Jesus41844/Inscripcion_EurusConf
 footnote: >-
   There is no public demo because it works with a real event's registration

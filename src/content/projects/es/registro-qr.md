@@ -21,6 +21,8 @@ stack:
   - Firestore
   - html5-qrcode
   - jsPDF
+image: /projects/registro-qr.jpg
+imageCaption: tres pantallas reales, en el teléfono
 repo: https://github.com/Jesus41844/Inscripcion_EurusConf
 footnote: >-
   No tiene demo pública porque trabaja con los datos de inscripción de un
