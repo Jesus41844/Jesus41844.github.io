@@ -24,7 +24,7 @@ const participaciones = (
   await getCollection('participaciones', ({ data }) => data.locale === locale)
 )
   .sort((a, b) => a.data.order - b.data.order)
-  .map((p) => p.data);
+  .map((p) => ({ ...p.data, detail: p.body?.trim() }));
 
 const certificaciones = (
   await getCollection('certificaciones', ({ data }) => data.locale === locale)
@@ -146,6 +146,7 @@ const description =
               <h3 class="part-role">{p.role}</h3>
               <p class="part-org">{p.org}</p>
               <p class="part-body">{p.body}</p>
+              {p.detail && <p class="part-body">{p.detail}</p>}
             </div>
           </article>
         ))}

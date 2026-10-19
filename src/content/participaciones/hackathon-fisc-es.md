@@ -2,12 +2,20 @@
 id: hackathon-fisc
 locale: es
 order: 2
-role: Organizador y expositor
-org: Hackathon-FISC AI Agents 2026
-period: sep. 2026
-kind: Hackatón de 24 h
+role: Organizador
+org: Hackathon-FISC
+period: sep. 2025 · oct. 2026
+kind: Hackatón · dos ediciones
 body: >-
-  Coordiné los talleres de preparación del hackathon, sobre paradigm agentic y
-  prompting, agentes en Python, CrewAI y LangGraph, sistemas multi-agente y
-  despliegue. También expuse en el panel de apertura.
+  En la primera edición, el 20 y 21 de septiembre de 2025, era miembro de
+  EURUS, la agrupación organizadora, y apoyé en la vigilancia de los equipos
+  durante la competencia.
 ---
+
+La segunda, AI Agents 2026, fue de 24 horas. Coordiné los talleres de
+preparación —paradigma agéntico y diseño de prompts, agentes en Python, CrewAI
+y LangGraph, sistemas multi-agente y despliegue— y durante el evento acompañé a
+los equipos como mini mentor. También construí el agente verificador: un bot de
+Telegram que revisaba los repositorios de los doce equipos, comprobaba las
+reglas y, con IA, si cada uno trabajaba en su reto. Solo avisaba a la
+organización; la decisión siempre fue de una persona.
