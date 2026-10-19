@@ -24,6 +24,8 @@ stack:
   - SQLite
   - GitHub API
   - pytest
+image: /projects/verificador-hackathon.jpg
+imageCaption: real screenshots of the bot on Telegram, during the event
 footnote: >-
   The repository is private, so there is no link to the code and no demo. The
   agent ran for the full 24 hours of the event, and its job was to alert the
