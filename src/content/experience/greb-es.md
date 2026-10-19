@@ -8,9 +8,9 @@ org: Grupo de Robótica Evolutiva Bioinspirada (GREB)
 period: ene. 2026 – actualidad
 place: Panamá
 body: >-
-  Agrupación Estudiantil de la Facultad de Ingeniería en Sistemas
+  Agrupación estudiantil de la Facultad de Ingeniería en Sistemas
   Computacionales de la UTP. Preparamos a los estudiantes con talleres de
-  robótica e incentivando a investigar en esta área.
+  robótica y los incentivamos a investigar en esta área.
 projectId: horarios-greb
 ---
 

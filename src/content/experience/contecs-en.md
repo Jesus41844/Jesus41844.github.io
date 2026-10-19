@@ -20,9 +20,9 @@ body: >-
 ---
 
 I started as deputy coordinator for Activities, Sales and Volunteers at the
-first edition, and at the second one I am the coordinator for Activities. It is
-the same area, one level up: getting the resources and building the team is no
-longer my part, running the activities before the congress is.
+first edition, and at the second one I stepped up to coordinator for
+Activities. It is the same area, one level up: getting the resources and building the team is no
+longer my part, running the congress activities is.
 
 The first edition was the faculty's inaugural one, so part of my job was making
 it happen: helping set the schedule, and organizing something together with

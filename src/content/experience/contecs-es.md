@@ -20,9 +20,9 @@ body: >-
 ---
 
 Empecé como subcoordinador de Actividades, Ventas y Voluntarios en la primera
-edición, y en la segunda soy coordinador de Actividades. El cargo es el mismo
+edición, y en la segunda pasé a coordinador de Actividades. El cargo es el mismo
 área, pero con el nivel siguiente: ya no me toca conseguir los recursos ni
-armar el equipo, sino dirigir las actividades antes del congreso.
+armar el equipo, sino dirigir las actividades del congreso.
 
 La primera edición fue la inaugural de la facultad, así que parte de mi trabajo
 fue lograr que saliera: apoyar a definir el cronograma, y organizar algo junto a
